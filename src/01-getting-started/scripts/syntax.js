@@ -53,13 +53,14 @@ const functions = {
         }
         return allObjectData;
     },
-    countingDownToZeroWithWhileLoop: (num) => {
+    addAllNumbersWhileDownToZeroWithWhileLoop: (num) => {
         if (num <= 10 && num > 0) {
             let total = 0;
             let i = num;
-            while (i > 0) {total += i; i--;}; return total;
-        return "number is not between 1 and 10";
-    }
+            while (i > 0) {total += i; i--;}; return total};
+        return "value must be a number between 1 and 10";
+    },
+    
 
 };
     

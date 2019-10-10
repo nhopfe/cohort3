@@ -46,14 +46,14 @@ import functions from './syntax'
         expect(functions.deconstructingAnObjectWithForInLoop(5)).toBe("");
     });
 
-    test('counting down to zero with while loop', () => {
-        expect(functions.deconstructingAnObjectWithForInLoop(11)).toBe(
-        expect(functions.deconstructingAnObjectWithForInLoop("15")).toBe("");
-        expect(functions.deconstructingAnObjectWithForInLoop(10)).toBe(
+    test('add all numbers together while counting down to zero with while loop', () => {
+        expect(functions.addAllNumbersWhileDownToZeroWithWhileLoop(11)).toBe("value must be a number between 1 and 10");
+        expect(functions.addAllNumbersWhileDownToZeroWithWhileLoop("15")).toBe("value must be a number between 1 and 10");
+        expect(functions.addAllNumbersWhileDownToZeroWithWhileLoop(10)).toBe(55);
+        expect(functions.addAllNumbersWhileDownToZeroWithWhileLoop(1)).toBe(1);
     });
 
 // loops 
-    // while
     // do while
     // forEach (with array and function)
 // Objects / Dictionaries
