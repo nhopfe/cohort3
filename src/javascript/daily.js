@@ -4,3 +4,6 @@ export const assertEquals = (a, b) => {
         return false;
     }
 
+export const makeEmailArr = (x) => {
+        return x[0].toLowerCase() + "." + x[1].toLowerCase() + "@evolveu.ca";
+}

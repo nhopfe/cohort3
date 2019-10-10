@@ -14,7 +14,7 @@
 
 // Write the function after this comment ---
 
-import {assertEquals} from './daily'
+import {assertEquals, makeEmailArr} from './daily'
 
 test('assertEquals', () => {
     expect(assertEquals("a","b")).toBe(false);
@@ -24,6 +24,17 @@ test('assertEquals', () => {
     expect(assertEquals("2",2)).toBe(false);
     expect(assertEquals("This value","This value")).toBe(true);
 });
+
+test('email builder from an array', () => {
+    const name = ["first", "last"];
+    expect(makeEmailArr(name))
+        .toEqual("first.last@evolveu.ca");
+    expect(makeEmailArr(["First", "Last"]))
+        .toEqual("first.last@evolveu.ca");
+    expect(makeEmailArr(["Bill", "Smith"]))
+        .toEqual("bill.smith@evolveu.ca");
+});
+
 
 
 // and before this comment ---
