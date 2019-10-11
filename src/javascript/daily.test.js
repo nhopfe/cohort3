@@ -14,15 +14,15 @@
 
 // Write the function after this comment ---
 
-import {assertEquals, makeEmailArr} from './daily'
+import { assertEquals, makeEmailArr, makeEmailObj } from './daily'
 
 test('assertEquals', () => {
-    expect(assertEquals("a","b")).toBe(false);
-    expect(assertEquals("a","a")).toBe(true);
-    expect(assertEquals(1,2)).toBe(false);
-    expect(assertEquals(2,2)).toBe(true);
-    expect(assertEquals("2",2)).toBe(false);
-    expect(assertEquals("This value","This value")).toBe(true);
+    expect(assertEquals("a", "b")).toBe(false);
+    expect(assertEquals("a", "a")).toBe(true);
+    expect(assertEquals(1, 2)).toBe(false);
+    expect(assertEquals(2, 2)).toBe(true);
+    expect(assertEquals("2", 2)).toBe(false);
+    expect(assertEquals("This value", "This value")).toBe(true);
 });
 
 test('email builder from an array', () => {
@@ -34,6 +34,17 @@ test('email builder from an array', () => {
     expect(makeEmailArr(["Bill", "Smith"]))
         .toEqual("bill.smith@evolveu.ca");
 });
+
+test('email builder from an object / map', () => {
+    const name = { fname: 'first', lname: 'last' };
+    expect(makeEmailObj(name))
+        .toEqual("first.last@evolveu.ca");
+    expect(makeEmailObj({ fname: 'First', lname: 'Last' }))
+        .toEqual("first.last@evolveu.ca");
+    expect(makeEmailObj({ fname: "Bill", lname: "Smith" }))
+        .toEqual("bill.smith@evolveu.ca");
+});
+
 
 
 

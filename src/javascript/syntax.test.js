@@ -68,4 +68,5 @@ test('doubling the elements in an array using a forEach loop', () => {
 
 test('looking u an object key to retrieve the value', () => {
     expect(functions.retrievingObjectValuesUsingLookupKeys("color")).toBe("yellow");
+    expect(functions.retrievingObjectValuesUsingLookupKeys("type")).toBe("fruit");
 });
