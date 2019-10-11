@@ -1,8 +1,8 @@
 // define attributes / variables
 const functions = {
-    
+
     testForAttributeType: (p1) => {
-        let p2 = typeof(p1);     
+        let p2 = typeof (p1);
         return p2;
     },
     testForArrays: (p1) => {
@@ -10,39 +10,39 @@ const functions = {
         return p2;
     },
     testForEqualValue: (p1) => {
-        let mango = new Object ();
+        let mango = new Object();
         mango.color = "yellow";
         if (p1 === mango.color) return true;
         return false;
     },
     testIfVariableIsUndefined: (p1) => {
-        let p2 = typeof(p1);
+        let p2 = typeof (p1);
         if (p2 === "undefined") return true;
         return false;
     },
     unshiftOnlyStringsToArray: (p1) => {
         let testUnshiftArray = ["this", "is", "a", "test", "array"];
-        let p2 = typeof(p1);
-        if (p2 === "string") {testUnshiftArray.unshift(p1); return "unshifted"};
+        let p2 = typeof (p1);
+        if (p2 === "string") { testUnshiftArray.unshift(p1); return "unshifted" };
         return "not a string";
     },
     pushOnlyNumbersToArray: (p1) => {
         let testPushArray = [3, 4, 5];
-        let p2 = typeof(p1);
-        if (p2 === "number") {testPushArray.push(p1); return "pushed"};
+        let p2 = typeof (p1);
+        if (p2 === "number") { testPushArray.push(p1); return "pushed" };
         return "not a number";
     },
     changeFirstValueInArrayIfString: (p1) => {
         let testChangeArray = ["Sam", "Fred", "Susy"];
-        let p2 = typeof(p1);
-        if (p2 === "string") {testChangeArray[0] = p1; return "changed"};
+        let p2 = typeof (p1);
+        if (p2 === "string") { testChangeArray[0] = p1; return "changed" };
         return "not a string";
     },
     changeLoopConditionIfNumber: (p1) => {
-        let p2 = typeof(p1);
+        let p2 = typeof (p1);
         let items = 0;
         let i;
-        if (p2 === "number" && p1 > 0) {for (i = 0; i < p1; i++) {items[i]}; return "condition changed"};
+        if (p2 === "number" && p1 > 0) { for (i = 0; i < p1; i++) { items[i] }; return "condition changed" };
         if (p2 === "number" && p1 <= 0) return "number must be greater than 0";
         return "not a number";
     },
@@ -57,26 +57,32 @@ const functions = {
         if (num <= 10 && num > 0) {
             let total = 0;
             let i = num;
-            while (i > 0) {total += i; i--;}; return total};
+            while (i > 0) { total += i; i--; }; return total
+        };
         return "value must be a number between 1 and 10";
     },
     addingNumbersWithDoWhileLoop: (num) => {
         if (num <= 10 && num > 0) {
             let total = 0;
             let i = num;
-            do {total += i; i++;} while (i < 10);  return total};
+            do { total += i; i++; } while (i < 10); return total
+        };
         return "value must be a number between 1 and 10";
     },
     changingArrayWithForEachLoop: (array) => {
-        let numbers = array;
-        numbers.forEach(changeArray);
-            changeArray: (item, index, arr) => {
-                arr[index] = item - 10; return 
-        }
+        let newArray = []
+        array.forEach(item => {
+            newArray.push(item * 2);  
+        })
+        return newArray;
     },
-
+    retrievingObjectValuesUsingLookupKeys: (key) => {
+        let mango = {"type":"fruit", "color":"yellow", "taste":"sweet"};
+        let mangoCharacteristic = mango[key];
+        return mangoCharacteristic;
+    }
 };
-    
+
 export default functions;
     // string
     // boolean
