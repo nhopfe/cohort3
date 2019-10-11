@@ -53,14 +53,27 @@ const functions = {
         }
         return allObjectData;
     },
-    addAllNumbersWhileDownToZeroWithWhileLoop: (num) => {
+    addAllNumbersDownToZeroWithWhileLoop: (num) => {
         if (num <= 10 && num > 0) {
             let total = 0;
             let i = num;
             while (i > 0) {total += i; i--;}; return total};
         return "value must be a number between 1 and 10";
     },
-    
+    addingNumbersWithDoWhileLoop: (num) => {
+        if (num <= 10 && num > 0) {
+            let total = 0;
+            let i = num;
+            do {total += i; i++;} while (i < 10);  return total};
+        return "value must be a number between 1 and 10";
+    },
+    changingArrayWithForEachLoop: (array) => {
+        let numbers = array;
+        numbers.forEach(changeArray);
+            changeArray: (item, index, arr) => {
+                arr[index] = item - 10; return 
+        }
+    },
 
 };
     

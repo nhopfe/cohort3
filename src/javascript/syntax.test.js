@@ -47,14 +47,23 @@ import functions from './syntax'
     });
 
     test('add all numbers together while counting down to zero with while loop', () => {
-        expect(functions.addAllNumbersWhileDownToZeroWithWhileLoop(11)).toBe("value must be a number between 1 and 10");
-        expect(functions.addAllNumbersWhileDownToZeroWithWhileLoop("15")).toBe("value must be a number between 1 and 10");
-        expect(functions.addAllNumbersWhileDownToZeroWithWhileLoop(10)).toBe(55);
-        expect(functions.addAllNumbersWhileDownToZeroWithWhileLoop(1)).toBe(1);
+        expect(functions.addAllNumbersDownToZeroWithWhileLoop(11)).toBe("value must be a number between 1 and 10");
+        expect(functions.addAllNumbersDownToZeroWithWhileLoop("15")).toBe("value must be a number between 1 and 10");
+        expect(functions.addAllNumbersDownToZeroWithWhileLoop(10)).toBe(55);
+        expect(functions.addAllNumbersDownToZeroWithWhileLoop(1)).toBe(1);
     });
 
+    test('add all numbers together while counting up to ten do while loop', () => {
+        expect(functions.addingNumbersWithDoWhileLoop(20)).toBe("value must be a number between 1 and 10");
+        expect(functions.addingNumbersWithDoWhileLoop("foo")).toBe("value must be a number between 1 and 10");
+        expect(functions.addingNumbersWithDoWhileLoop(10)).toBe(10);
+        expect(functions.addingNumbersWithDoWhileLoop(1)).toBe(45);
+    });
+
+    test('updating arrays with forEach loop', () => {
+        expect(functions.changeArray([20, 10, 30]).toBe()
+    });
 // loops 
-    // do while
     // forEach (with array and function)
 // Objects / Dictionaries
     // declare object
