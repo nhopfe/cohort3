@@ -65,6 +65,27 @@ html {
     width: 50px;
 }
 
+#myCalcHeader {
+    display: flex;
+    justify-content: center;
+}
+
+#inputFields {
+    display: flex;
+    justify-content: center;
+}
+
+#buttons {
+    display: flex;
+    justify-content: center;
+}
+
+#output {
+    display: flex;
+    justify-content: center;
+    color: forestgreen;
+    
+}
 
 /* Turn off parallax scrolling for tablets and phones */
 
