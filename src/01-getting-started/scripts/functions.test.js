@@ -31,9 +31,16 @@ test('Does that divide function work?', () => {
 });
 
 test('testing the taxes function', () => {
-    expect(functions.taxes(10000)).toBe(1500);
-    expect(functions.taxes(55000)).toBe(8655.35);
-    expect(functions.taxes(100100)).toBe(18167.11);
-    expect(functions.taxes(175000)).toBe(38461.10);
+    expect(functions.taxes(1)).toBe(.15);
+    expect(functions.taxes(2)).toBe(.30);
+    expect(functions.taxes(50000)).toBe(7630.35);
+    expect(functions.taxes(100000)).toBe(18141.11);
+    expect(functions.taxes(150000)).toBe(31211.10);
     expect(functions.taxes(250000)).toBe(61796.26);
 });
+
+test('testing the Working with Arrays button', () => {
+    expect(functions.workingWithArraysAdd("Foo")).toBe("Input is not a valid number");
+    expect(functions.workingWithArraysAdd(1)).toBe(1 + " has been added to the array");
+});
+

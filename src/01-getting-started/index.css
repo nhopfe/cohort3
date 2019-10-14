@@ -65,6 +65,8 @@ html {
     width: 50px;
 }
 
+/* myCalculator */
+
 #myCalcHeader {
     display: flex;
     justify-content: center;
@@ -87,6 +89,32 @@ html {
     
 }
 
+/* Canadian Taxes */
+
+#canadianTaxHeader {
+    display: flex;
+    justify-content: center;
+}
+
+#cndTaxInputContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#cndTaxButtonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#cndTaxOutputText {
+    display: flex;
+    justify-content: center;
+}
+
+#cndTaxOutput {
+    display: flex;
+    justify-content: center;
+}
 /* Turn off parallax scrolling for tablets and phones */
 
 @media only screen and (max-device-width: 1600px) {

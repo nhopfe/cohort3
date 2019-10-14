@@ -8,6 +8,8 @@ idNumber.addEventListener('change', (() => {
     idNumberSize.textContent = functions.size(idNumber.value);
 }));
 
+// MyCalculator Buttons
+
 addButton.addEventListener('click', (() => {
     output.textContent = functions.add((Number(input1.value)), (Number(input2.value)));
 }));
@@ -22,4 +24,10 @@ multiplyButton.addEventListener('click', (() => {
 
 divideButton.addEventListener('click', (() => {
     output.textContent = functions.divide((Number(input1.value)), (Number(input2.value)));
+}));
+
+// Canadian Taxes Button
+
+cndTaxButton.addEventListener('click', (() => {
+    cndTaxOutput.textContent = functions.taxes(Number(cndTaxInput.value));
 }));
