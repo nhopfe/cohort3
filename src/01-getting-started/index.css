@@ -67,7 +67,7 @@ html {
 
 /* myCalculator */
 
-#myCalcHeader {
+#inputTwoNumbers {
     display: flex;
     justify-content: center;
 }
@@ -114,7 +114,32 @@ html {
 #cndTaxOutput {
     display: flex;
     justify-content: center;
+    color: forestgreen;
 }
+
+/* Working with Arrays */
+
+#enterNumbersToAddToArray {
+    display: flex;
+    justify-content: center;
+}
+
+#workingWithArraysInputContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#workingWithArraysButtonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#workingWithArraysMessageArea {
+    display: flex;
+    justify-content: center;
+    color: forestgreen;
+}
+
 /* Turn off parallax scrolling for tablets and phones */
 
 @media only screen and (max-device-width: 1600px) {

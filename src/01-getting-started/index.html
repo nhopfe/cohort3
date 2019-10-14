@@ -113,10 +113,16 @@
     </div>
 
 
-    <!-- ------------------------Calculator--------------------------- -->
+    <!-- -----------------------My Calculator------------------------- -->
+
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide">My Calculator</span>
+        </div>
+    </div><br>
 
     <div id="myCalculator" <!-- MyCalculator -->
-        <h1 id="myCalcHeader">My Calculator</h1>
+        <h5 id="inputTwoNumbers">Please Input A Number in Each Field</h5>
         <div id="inputFields">
             <input id="input1" type="number">
             <input id="input2" type="number">
@@ -127,15 +133,20 @@
             <button id="multiplyButton" type="button">Multiply</button>
             <button id="divideButton" type="button">Divide</button>
         </div><br>
-        <h2 id="output"></h2>
+        <h2 id="output">0</h2>
         <script type="module" src="./scripts/main.js"></script>
     </div>
 
 
     <!-- ----------------------Canadian Taxes------------------------- -->
 
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+        <div class="w3-display-middle">
+            <span class="w3-xxlarge w3-text-white w3-wide">Canadian Taxes</span>
+        </div>
+    </div><br>
+
     <div id="canadianTaxCalculator">
-        <h1 id="canadianTaxHeader">Canadian Taxes</h1><br>
         <div id="cndTaxInputContainer">
             <h5 id="cndTaxInputText">Please Enter Your Taxable Income =></h5>
             <input id="cndTaxInput" type="number">
@@ -144,22 +155,30 @@
             <button id="cndTaxButton" type="button">Calculate Taxes</button>
         </div>
         <h5 id="cndTaxOutputText">You Owe the Following Taxes:</h2>
-        <h2 id="cndTaxOutput">0</h2>
+            <h2 id="cndTaxOutput">0</h2>
     </div>
 
 
     <!-- -------------------Working with Arrays---------------------- -->
 
+    <div class="bgimg-2 w3-display-container w3-opacity-min">
+            <div class="w3-display-middle">
+                <span class="w3-xxlarge w3-text-white w3-wide">Working with Arrays</span>
+            </div>
+    </div><br>
+
     <div id="workingWithArrays">
-        <h1 id="workingWithArraysHeader">Working with Arrays</h1>
-        <input id="workingWithArraysInput"><br><br>
+        <div id="workingWithArraysInputContainer">
+            <h5 id="enterNumbersToAddToArray">Enter Numbers to Add to Array =></h5>
+            <input id="workingWithArraysInput">
+        </div><br>
         <div id="workingWithArraysButtonContainer">
             <button id="workingWithArraysAddButton" type="button">Add</button>
             <button id="workingWithArraysShowButton" type="button">Show</button>
             <button id="workingWithArraysTotalButton" type="button">Total</button>
             <button id="workingWithArraysClearButton" type="button">Clear</button>
         </div>
-        <h5 id="workingWithArraysMessageArea">Message Area</h5>
+        <h5 id="workingWithArraysMessageArea">Empty Array</h5>
     </div>
 
     <div <!-- Footer -->

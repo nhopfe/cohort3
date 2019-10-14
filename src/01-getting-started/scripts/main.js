@@ -31,3 +31,23 @@ divideButton.addEventListener('click', (() => {
 cndTaxButton.addEventListener('click', (() => {
     cndTaxOutput.textContent = functions.taxes(Number(cndTaxInput.value));
 }));
+
+// Working With Arrays
+
+workingWithArraysAddButton.addEventListener('click', (() => {
+    workingWithArraysMessageArea.textContent = functions.workingWithArraysAdd(Number(workingWithArraysInput.value));
+    workingWithArraysInput.value = "";
+}));
+
+workingWithArraysShowButton.addEventListener('click', (() => {
+    workingWithArraysMessageArea.textContent = functions.workingWithArraysShow();
+}));
+
+workingWithArraysTotalButton.addEventListener('click', (() => {
+    workingWithArraysMessageArea.textContent = functions.workingWithArraysTotal();
+}));
+
+workingWithArraysClearButton.addEventListener('click', (() => {
+    functions.workingWithArraysClear();
+    workingWithArraysMessageArea.textContent = "Empty Array";
+}));
