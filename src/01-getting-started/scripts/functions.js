@@ -84,19 +84,19 @@ const functions = {
     // Working with Dictionaries
 
     workingWithDictionaries: {
-        AB: 'Alberta',
-        NL: 'Newfoundland and Labrador',
-        PE: 'Prince Edward Island',
-        NS: 'Nova Scotia',
-        NB: 'New Brunswick',
-        QC: 'Quebec',
-        ON: 'Ontario',
-        MB: 'Manitoba',
-        SK: 'Saskatchewan',
-        BC: 'British Columbia',
-        YK: 'Yukon',
-        NT: 'Northwest Territories',
-        NU: 'Nunavut'
+        'AB': 'Alberta',
+        'NL': 'Newfoundland and Labrador',
+        'PE': 'Prince Edward Island',
+        'NS': 'Nova Scotia',
+        'NB': 'New Brunswick',
+        'QC': 'Quebec',
+        'ON': 'Ontario',
+        'MB': 'Manitoba',
+        'SK': 'Saskatchewan',
+        'BC': 'British Columbia',
+        'YK': 'Yukon',
+        'NT': 'Northwest Territories',
+        'NU': 'Nunavut'
     },
 
     dictionaryLookup: (abb) => {

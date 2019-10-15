@@ -1,0 +1,10 @@
+#basicDomContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#basicDomContainer2 {
+    border: solid;
+    padding: .5cm 2cm 1cm 2cm;
+}
+
