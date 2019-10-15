@@ -51,3 +51,9 @@ workingWithArraysClearButton.addEventListener('click', (() => {
     functions.workingWithArraysClear();
     workingWithArraysMessageArea.textContent = "Empty Array";
 }));
+
+// Working with Dictionaries
+
+dictionaryLookupButton.addEventListener('click', (() => {
+    workingWithDictionariesMessageArea.textContent = functions.dictionaryLookup(String(workingWithDictionariesInput.value));
+}));

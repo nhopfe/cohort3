@@ -140,6 +140,23 @@ html {
     color: forestgreen;
 }
 
+/* Working with Dictionaries */
+
+#workingWithDictionariesInputContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#workingWithDictionariesButtonContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#workingWithDictionariesMessageArea {
+    display: flex;
+    justify-content: center;
+    color: forestgreen;
+}
 /* Turn off parallax scrolling for tablets and phones */
 
 @media only screen and (max-device-width: 1600px) {

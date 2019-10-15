@@ -74,13 +74,34 @@ const functions = {
     },
 
     workingWithArraysTotal: () => {
-        return functions.workingWithArraysArray.reduce((a, b) => a+b, 0);
+        return functions.workingWithArraysArray.reduce((a, b) => a + b, 0);
     },
 
     workingWithArraysClear: () => {
         return functions.workingWithArraysArray = [];
-    }
+    },
 
+    // Working with Dictionaries
+
+    workingWithDictionaries: {
+        AB: 'Alberta',
+        NL: 'Newfoundland and Labrador',
+        PE: 'Prince Edward Island',
+        NS: 'Nova Scotia',
+        NB: 'New Brunswick',
+        QC: 'Quebec',
+        ON: 'Ontario',
+        MB: 'Manitoba',
+        SK: 'Saskatchewan',
+        BC: 'British Columbia',
+        YK: 'Yukon',
+        NT: 'Northwest Territories',
+        NU: 'Nunavut'
+    },
+
+    dictionaryLookup: (abb) => {
+        return functions.workingWithDictionaries[abb];
+    }
 };
 
 export default functions;

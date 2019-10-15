@@ -44,3 +44,8 @@ test('testing the Working with Arrays button', () => {
     expect(functions.workingWithArraysAdd(1)).toBe(1 + " has been added to the array");
 });
 
+test('testing the dictionary lookup function', () => {
+    expect(functions.dictionaryLookup('AB')).toBe('Alberta');
+    expect(functions.dictionaryLookup('SK')).toBe('Saskatchewan');
+    expect(functions.dictionaryLookup('CL')).toBe(undefined);
+});
