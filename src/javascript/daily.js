@@ -11,3 +11,53 @@ export const makeEmailArr = (arr) => {
 export const makeEmailObj = (obj) => {
         return obj.fname.toLowerCase() + "." + obj.lname.toLowerCase() + "@evolveu.ca";
 }
+
+export const exampleForLoop = (a, b, c) => {
+        const defaultArray = [a, b, c];
+        let newArray = [];
+        let i;
+        for (i = 0; i < defaultArray.length ; i++) {
+                newArray[i] = defaultArray[i];
+        }
+        return newArray;
+}
+
+export const exampleWhileLoop = (a, b, c) => {
+        const defaultArray = [a, b, c];
+        let newArray = [];
+        let i = 0;
+        while (i < defaultArray.length) {
+                newArray[i] = defaultArray[i];
+                i++;
+        }
+        return newArray;
+}
+
+export const exampleDoWhileLoop = (a, b, c) => {
+        const defaultArray = [a, b, c];
+        let newArray = [];
+        let i = 0;
+        do {newArray[i] = defaultArray[i]; i++;}
+        while (i < defaultArray.length);
+        return newArray;
+}
+
+export const exampleForInLoop = (a, b, c) => {
+        const defaultArray = [a, b, c];
+        let newArray = [];
+        let i;
+        for (i in defaultArray) {
+                newArray[i] = defaultArray[i];
+        }
+        return newArray;
+}
+
+export const exampleForOfLoop = (a, b, c) => {
+        const defaultArray = [a, b, c];
+        let newArray = [];
+        let x;
+        for (x of defaultArray) {
+                newArray.push(x);
+        }
+        return newArray;
+}
