@@ -1,8 +1,8 @@
 console.log("Hello World from basic.js")
 const input = document.getElementById("input");
 const printResult = document.getElementById ("textSize");
-const pageHeading = document.getElementById("pageHeading")
-const originalHeading = pageHeading.textContent
+const pageHeading = document.getElementById("pageHeading");
+const originalHeading = pageHeading.textContent;
 
 const onButtonClick = () => {
     let userInput = Number(input.value);
