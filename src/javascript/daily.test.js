@@ -14,7 +14,47 @@
 
 // Write the function after this comment ---
 
-import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop } from './daily'
+import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample } from './daily'
+
+// Start of tests for More Array Work Daily for 2019, 10, 16-17
+
+test('removing an element from a specific index of an array', () => {
+    expect(sliceExample(1)).toStrictEqual([2, 3]);
+    expect(sliceExample(2)).toStrictEqual([3]);
+});
+
+test('adding a value to a specific location in an array using splice', () => {
+    expect(spliceExample(1, 5)).toStrictEqual([1,5,2,3]);
+    expect(spliceExample(0, 0)).toStrictEqual([0,1,2,3]);
+});
+
+test('copying an array using for each', () => {
+    expect(forEachExample(1, 1, 1)).toStrictEqual([1, 1, 1]);
+    expect(forEachExample("one", "two", "three")).toStrictEqual(["one", "two", "three"]);
+});
+
+test('multiplying the elements of an array by a specified number and mapping those numbers to a new array', () => {
+    expect(mapExample(2)).toStrictEqual([2, 4, 6]);
+    expect(mapExample(10)).toStrictEqual([10, 20, 30]);
+});
+
+test('adding the sum of an array to a specified number using reduce', () => {
+    expect(reduceExample(0)).toStrictEqual(6);
+    expect(reduceExample(10)).toStrictEqual(16);
+});
+
+test('filtering an array for words that are smaller than a specified length', () => {
+    expect(filterExample(3)).toStrictEqual(["hi"]);
+    expect(filterExample(10)).toStrictEqual(["hi", "hello"]);
+    expect(filterExample(20)).toStrictEqual(["hi", "hello", "pleasedToMeetYou"]);
+});
+
+test('sorting an array of given numbers by size', () => {
+    expect(sortExample(3, 1, 2)).toStrictEqual([1, 2, 3]);
+    expect(sortExample(2, 50, 0)).toStrictEqual([0, 2, 50]);
+});
+
+// Start of tests for More Array Work Daily for 2019, 10, 16-17
 
 test('assertEquals', () => {
     expect(assertEquals("a", "b")).toBe(false);

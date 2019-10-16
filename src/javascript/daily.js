@@ -1,3 +1,53 @@
+// Start of More Array Work Daily for 2019, 10, 16-17
+
+export const sliceExample = (p1) => {
+        let defaultArray = [1, 2, 3];
+        let newArray = [];
+        newArray = defaultArray.slice(p1);
+        return newArray;
+}
+
+export const spliceExample = (a, b) => {
+        let defaultArray = [1, 2, 3];
+        defaultArray.splice(a, 0, b);
+        return defaultArray;
+}
+
+export const forEachExample = (a, b, c) => {
+        let defaultArray = [a, b, c];
+        let newArray = [];
+        defaultArray.forEach((num) => { newArray.push(num)});
+        return newArray;
+}
+
+export const mapExample = (p1) => {
+        let defaultArray = [1, 2, 3];
+        let newArray = [];
+        const mapArr = defaultArray.map(x => x * p1);
+        newArray = mapArr;
+        return newArray;
+}
+
+export const reduceExample = (p1) => {
+        let defaultArray = [1, 2, 3];
+        let reducer = (accumulator, num) => accumulator + num;
+        return defaultArray.reduce(reducer, p1);
+}
+
+export const filterExample = (p1) => {
+        let defaultArray = ["hi", "hello", "pleasedToMeetYou"];
+        let newArray = defaultArray.filter(num => num.length < p1);
+        return newArray;
+}
+
+export const sortExample = (a, b, c) => {
+        let defaultArray = [a, b, c];
+        defaultArray.sort((x, y) => x - y);
+        return defaultArray;
+}
+
+// End of More Array Work Daily for 2019, 10, 16-17
+
 export const assertEquals = (a, b) => {
         if (a === b) return true;
         if (a !== b) console.log("*** the two values are not the same: \n   p1--> " + a + "\n   p2--> " + b);
