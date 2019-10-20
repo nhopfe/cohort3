@@ -1,3 +1,5 @@
+/* Basic Dom */
+
 #basicDomContainer {
     display: flex;
     justify-content: center;
@@ -8,3 +10,46 @@
     padding: .5cm 2cm 1cm 2cm;
 }
 
+/* Working with Cards */
+
+#workingWithCardsContainer {
+    background-color: lightgrey;
+}
+
+#panelContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.panel {
+    width: 50%;
+}
+
+#leftPanel {
+    background-color: white;
+    margin-left: 2%;
+    margin-right: 5%;
+    height: 500px;
+    overflow: scroll;
+}
+
+#defaultAddCardButton {
+    height: 5%;
+}
+
+#rightPanel {
+    text-align: center;
+    margin-left: 5%;
+    margin-right: 2%;
+    background-color: white;
+    height: 450px;
+}
+
+.card {
+    display: grid;
+    text-align: center;
+    padding: 2% 5% 2% 5%;
+    background-color: lightgrey;
+    margin: 5%;
+    height: auto;
+}

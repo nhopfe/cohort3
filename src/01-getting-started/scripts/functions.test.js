@@ -39,9 +39,24 @@ test('testing the taxes function', () => {
     expect(functions.taxes(250000)).toBe(61796.26);
 });
 
-test('testing the Working with Arrays button', () => {
+test('testing the Working with Arrays Add button', () => {
     expect(functions.workingWithArraysAdd("Foo")).toBe("Input is not a valid number");
     expect(functions.workingWithArraysAdd(1)).toBe(1 + " has been added to the array");
+});
+
+test('testing the Working with Arrays Show button', () => {
+    functions.workingWithArraysArray = [1, 2, 3];
+    expect(functions.workingWithArraysShow()).toBe("1,2,3");
+});
+
+test('testing the Working with Arrays Total button', () => {
+    functions.workingWithArraysArray = [1, 2, 3];
+    expect(functions.workingWithArraysTotal()).toBe(6);
+});
+
+test('testing the Working with Arrays Clear button', () => {
+    functions.workingWithArraysArray = [1, 2, 3];
+    expect(functions.workingWithArraysClear()).toStrictEqual([]);
 });
 
 test('testing the dictionary lookup function', () => {
