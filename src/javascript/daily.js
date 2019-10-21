@@ -1,4 +1,40 @@
-// Start of More Array Work Daily for 2019, 10, 16-17
+// Start of loopStaff Daily for 2019-10-21
+/*
+    Sample data for the next few exercises.
+*/
+
+export const data = {
+        staff: [
+            { fname: "Jane", lname: "Smith", balance: 10 },
+            { fname: "Liam", lname: "Henry", balance: 1000 },
+            { fname: "Emma", lname: "Jones", balance: 1330 },
+            { fname: "Olivia", lname: "Notly", balance: 310 },
+            { fname: "Noah", lname: "Ho", balance: 503 },
+            { fname: "William", lname: "Lee", balance: 520 },
+            { fname: "Benjamin", lname: "Amis", balance: 150 },
+        ],
+        company: "EvolveU",
+        city: "Calgary",
+        prov: "Alberta"
+    };
+    
+    
+    /*	
+            Loop through data.staff object sending each staff memeber to the makeEmailObj to
+             create an email array.
+            Then the test should be able to read that new array in order to get the desired email
+            address. 
+    */
+export const loopStaff = (obj) => {
+        let staffEmail = [];
+        obj.forEach(item => {
+                staffEmail.push(makeEmailObj(item));
+        }); return staffEmail;
+}
+
+
+  
+// Start of More Array Work Daily for 2019-10-16&17
 
 export const sliceExample = (p1) => {
         let defaultArray = [1, 2, 3];
@@ -60,7 +96,7 @@ export const makeEmailArr = (arr) => {
 
 export const makeEmailObj = (obj) => {
         return obj.fname.toLowerCase() + "." + obj.lname.toLowerCase() + "@evolveu.ca";
-}
+};
 
 export const exampleForLoop = (a, b, c) => {
         const defaultArray = [a, b, c];

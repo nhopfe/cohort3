@@ -14,7 +14,19 @@
 
 // Write the function after this comment ---
 
-import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample } from './daily'
+import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data } from './daily'
+
+// tests for loopStaff Daily for 2019-10-21
+
+test('email builder for company', () => {
+    const staffEmail = loopStaff(data.staff);
+    expect(staffEmail[0])
+        .toEqual("jane.smith@evolveu.ca");
+    expect(staffEmail[3])
+        .toEqual("olivia.notly@evolveu.ca");
+    expect(staffEmail[6])
+        .toEqual("benjamin.amis@evolveu.ca");
+});
 
 // Start of tests for More Array Work Daily for 2019, 10, 16-17
 
