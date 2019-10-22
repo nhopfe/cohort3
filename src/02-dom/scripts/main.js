@@ -39,6 +39,7 @@ const addCard = () => {
     let divChildCount = leftPanel.childElementCount;
     let newCard = document.createElement("div");
     newCard.className = "card";
+    newCard.setAttribute("count", (divChildCount));
     let newCardText = document.createTextNode ("Card" + divChildCount);
     let newCardAddBeforeButton = document.createElement("button");
     newCardAddBeforeButton.textContent = "Add Before";
@@ -60,6 +61,7 @@ const addBefore = () => {
     let divChildCount = leftPanel.childElementCount;
     let newCard = document.createElement("div");
     newCard.className = "card";
+    newCard.setAttribute("count", (divChildCount));
     let newCardText = document.createTextNode ("Card" + divChildCount);
     let newCardAddBeforeButton = document.createElement("button");
     newCardAddBeforeButton.textContent = "Add Before";
@@ -73,7 +75,7 @@ const addBefore = () => {
     newCard.appendChild(newCardAddBeforeButton);
     newCard.appendChild(newCardAddAfterButton);
     newCard.appendChild(newCardDeleteButton);
-    leftPanel.insertBefore(newCard, this);
+    leftPanel.insertBefore(newCard, ("count", (divChildCount)));
 }
 
 const addAfter = () => {

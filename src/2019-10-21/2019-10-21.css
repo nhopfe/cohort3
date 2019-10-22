@@ -1,0 +1,9 @@
+.container {
+    border: solid;
+}
+
+.card {
+    border: solid;
+    border-width: 2px;
+    margin: 5%;
+}
