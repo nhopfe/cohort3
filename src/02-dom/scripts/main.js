@@ -34,60 +34,59 @@ addButton.addEventListener('click', addLiTagToEnd);
 
 // Working with Cards
 
-const addCard = () => {
-    const leftPanel = document.getElementById("leftPanel");
-    let divChildCount = leftPanel.childElementCount;
-    let newCard = document.createElement("div");
-    newCard.className = "card";
-    newCard.setAttribute("count", (divChildCount));
-    let newCardText = document.createTextNode ("Card" + divChildCount);
-    let newCardAddBeforeButton = document.createElement("button");
-    newCardAddBeforeButton.textContent = "Add Before";
-    newCardAddBeforeButton.addEventListener('click', addBefore);
-    let newCardAddAfterButton = document.createElement("button");
-    newCardAddAfterButton.textContent = "Add After";
-    newCardAddAfterButton.addEventListener('click', addAfter);
-    let newCardDeleteButton = document.createElement("button");
-    newCardDeleteButton.textContent = "Delete";
-    newCard.appendChild(newCardText);
-    newCard.appendChild(newCardAddBeforeButton);
-    newCard.appendChild(newCardAddAfterButton);
-    newCard.appendChild(newCardDeleteButton);
-    leftPanel.appendChild(newCard);
-}
-
-const addBefore = () => {
-    const leftPanel = document.getElementById("leftPanel");
-    let divChildCount = leftPanel.childElementCount;
-    let newCard = document.createElement("div");
-    newCard.className = "card";
-    newCard.setAttribute("count", (divChildCount));
-    let newCardText = document.createTextNode ("Card" + divChildCount);
-    let newCardAddBeforeButton = document.createElement("button");
-    newCardAddBeforeButton.textContent = "Add Before";
-    newCardAddBeforeButton.addEventListener('click', addBefore);
-    let newCardAddAfterButton = document.createElement("button");
-    newCardAddAfterButton.textContent = "Add After";
-    newCardAddAfterButton.addEventListener('click', addAfter);
-    let newCardDeleteButton = document.createElement("button");
-    newCardDeleteButton.textContent = "Delete";
-    newCard.appendChild(newCardText);
-    newCard.appendChild(newCardAddBeforeButton);
-    newCard.appendChild(newCardAddAfterButton);
-    newCard.appendChild(newCardDeleteButton);
-    leftPanel.insertBefore(newCard, ("count", (divChildCount)));
-}
-
-const addAfter = () => {
-    const leftPanel = document.getElementById("leftPanel");
-    const insertAfter = (el, referenceNode) => {
-        referenceNode.leftPanel.insertBefore(el, referenceNode.nextSibling);
+leftPanel.addEventListener("click", () => {
+    console.log(event.target.textContent);
+    switch(event.target.textContent) {
+        case "Add Card": cards.defaultAdd();
+            break;
+        case "Add Before": cards.addBefore(event.target.parentElement);
+            break;
+        case "Add After": cards.addAfter(event.target.parentElement);
+            break;
+        case "Delete": cards.deleteCard(event.target.parentElement);
     }
-    let divChildCount = leftPanel.childElementCount;
-    let newCard = document.createElement("div");
-    let newCardText = document.createTextNode ("Card" + divChildCount);
-    newCard.appendChild(newCardText);
-    insertAfter(newCard, this);
-}
 
-const defaultAddCardButton = document.getElementById("defaultAddCardButton").addEventListener('click', addCard);
+});
+
+const cards = {
+    count: 1,
+    leftPanel: document.getElementById("leftPanel"),
+    addCard: () => {
+    // let divChildCount = leftPanel.childElementCount;
+    let newCard = document.createElement("div");
+    newCard.className = "card";
+    newCard.id = cards.count;
+    // newCard.setAttribute("count ", count);
+    let newCardText = document.createTextNode ("Card " + cards.count);
+    let newCardAddBeforeButton = document.createElement("button");
+    newCardAddBeforeButton.textContent = "Add Before";
+    // newCardAddBeforeButton.addEventListener('click', addBefore);
+    let newCardAddAfterButton = document.createElement("button");
+    newCardAddAfterButton.textContent = "Add After";
+    // newCardAddAfterButton.addEventListener('click', addAfter);
+    let newCardDeleteButton = document.createElement("button");
+    newCardDeleteButton.textContent = "Delete";
+    newCard.appendChild(newCardText);
+    newCard.appendChild(newCardAddBeforeButton);
+    newCard.appendChild(newCardAddAfterButton);
+    newCard.appendChild(newCardDeleteButton);
+    cards.count++;
+    return newCard;
+    },
+
+    defaultAdd: () => {
+        leftPanel.appendChild(cards.addCard());
+    },
+
+    addBefore: (card) => {
+       leftPanel.insertBefore(cards.addCard(), card);
+    },
+    
+    addAfter: (card) => {
+        leftPanel.insertBefore(cards.addCard(), card.nextSibling);
+    },
+
+    deleteCard: (card) => {
+        card.remove();
+    }
+};

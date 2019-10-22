@@ -13,8 +13,11 @@ const functions = {
     },
     whatCards: (node) => {
         // loop through DOM. then add 
-        return [1, 2, 3];
-    }
-}
+        let cardsArray = [];
+        // node.forEach(card => {
+
+        // }
+    },
+};
 
 export default functions;
