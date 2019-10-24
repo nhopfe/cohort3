@@ -4,32 +4,32 @@ const cards = {
         const newCard = document.createElement("div");
         newCard.className = "card";
         newCard.id = cards.count;
-        // let newCardText = document.createTextNode("Card " + cards.count);
-        // let newCardAddBeforeButton = document.createElement("button");
-        // newCardAddBeforeButton.textContent = "Add Before";
-        // let newCardAddAfterButton = document.createElement("button");
-        // newCardAddAfterButton.textContent = "Add After";
-        // let newCardDeleteButton = document.createElement("button");
-        // newCardDeleteButton.textContent = "Delete";
-        // newCard.appendChild(newCardText);
-        // newCard.appendChild(newCardAddBeforeButton);
-        // newCard.appendChild(newCardAddAfterButton);
-        // newCard.appendChild(newCardDeleteButton);
+        let newCardText = document.createTextNode("Card " + cards.count);
+        let newCardAddBeforeButton = document.createElement("button");
+        newCardAddBeforeButton.textContent = "Add Before";
+        let newCardAddAfterButton = document.createElement("button");
+        newCardAddAfterButton.textContent = "Add After";
+        let newCardDeleteButton = document.createElement("button");
+        newCardDeleteButton.textContent = "Delete";
+        newCard.appendChild(newCardText);
+        newCard.appendChild(newCardAddBeforeButton);
+        newCard.appendChild(newCardAddAfterButton);
+        newCard.appendChild(newCardDeleteButton);
         cards.count++;
-        console.log(newcard);
         return newCard;
     },
 
-    // defaultAdd: () => {
-    //     leftPanel.appendChild(cards.addCard());
-    // },
+    defaultAdd: (panel) => {
+        panel.appendChild(cards.addCard());
+    },
 
-    // addBefore: (card) => {
-    //     leftPanel.insertBefore(cards.addCard(), card);
-    // },
+    addBefore: (panel, card) => {
+        console.log(card);
+        panel.insertBefore(cards.addCard(), card);
+    },
 
-    // addAfter: (card) => {
-    //     leftPanel.insertBefore(cards.addCard(), card.nextSibling);
+    // addAfter: (panel, card) => {
+    //     panel.insertBefore(cards.addCard(), card.nextSibling);
     // },
 
     // deleteCard: (card) => {

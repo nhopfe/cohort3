@@ -13,7 +13,7 @@ const logParameter = (p1) => {
 }
 
 const displayItems = () => {
-    // showList.value = "";
+    // showList.value = [];
     let items = list.getElementsByTagName("li");
     for (let i = 0; i < items.length; i++) {
         showList.append(items[i].cloneNode(true));
@@ -38,15 +38,20 @@ addButton.addEventListener('click', addLiTagToEnd);
 // Working with Cards Presentation Logic
 
 leftPanel.addEventListener("click", () => {
-    console.log(event.target.textContent);
+    // console.log(event.target.textContent);
     switch (event.target.textContent) {
-        case "Add Card": cards.defaultAdd();
+        case "Add Card":
+            cards.defaultAdd(leftPanel);
             break;
-        case "Add Before": cards.addBefore(event.target.parentElement);
+        case "Add Before":
+            cards.addBefore(leftPanel, event.target.parentElement);
             break;
-        case "Add After": cards.addAfter(event.target.parentElement);
+        case "Add After":
+            cards.addAfter(leftPanel, event.target.parentElement);
             break;
-        case "Delete": cards.deleteCard(event.target.parentElement);
+        case "Delete":
+            cards.deleteCard(leftPanel, event.target.parentElement);
+            break;
     }
 
 });
