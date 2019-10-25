@@ -14,9 +14,47 @@
 
 // Write the function after this comment ---
 
-import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data } from './daily'
+import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn } from './daily'
 
-// tests for loopStaff Daily for 2019-10-21
+// loopStaff: in / of Daily for 2019-10-24
+
+// test('email builder for company', (loopFunc) => {
+//         const staffEmail = loopFunc(data.staff);
+//         expect(staffEmail[0])
+//             .toEqual("jane.smith@evolveu.ca");
+//         expect(staffEmail[3])
+//             .toEqual("olivia.notly@evolveu.ca");
+//         expect(staffEmail[6])
+//             .toEqual("benjamin.amis@evolveu.ca");
+// });
+
+// test('email builder for company', (loopStaffIn));
+// test('email builder for company', (loopStaffOf));
+// test('email builder for company', (loopStaff));
+
+test('email builder for company', () => {
+    const staffEmail = loopStaffIn(data.staff);
+    expect(staffEmail[0])
+        .toEqual("jane.smith@evolveu.ca");
+    expect(staffEmail[3])
+        .toEqual("olivia.notly@evolveu.ca");
+    expect(staffEmail[6])
+        .toEqual("benjamin.amis@evolveu.ca");
+});
+
+test('email builder for company', () => {
+    const staffEmail = loopStaffOf(data.staff);
+    expect(staffEmail[0])
+        .toEqual("jane.smith@evolveu.ca");
+    expect(staffEmail[3])
+        .toEqual("olivia.notly@evolveu.ca");
+    expect(staffEmail[6])
+        .toEqual("benjamin.amis@evolveu.ca");
+});
+
+
+
+// // tests for loopStaff Daily for 2019-10-21
 
 test('email builder for company', () => {
     const staffEmail = loopStaff(data.staff);

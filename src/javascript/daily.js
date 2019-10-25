@@ -1,4 +1,3 @@
-// Start of loopStaff Daily for 2019-10-21
 /*
     Sample data for the next few exercises.
 */
@@ -25,6 +24,25 @@ export const data = {
             Then the test should be able to read that new array in order to get the desired email
             address. 
     */
+
+// Start of loopStaff Daily for 2019-10-24
+export const loopStaffIn = (obj) => {
+        let staffEmail = [];
+        let item;
+        for (item in obj) {
+                staffEmail.push(makeEmailObj(obj[item]));
+        }
+        return staffEmail;
+}
+export const loopStaffOf = (obj) => {
+        let staffEmail = [];
+        let item;
+        for (item of obj) {
+                staffEmail.push(makeEmailObj(item));
+        }
+        return staffEmail;
+}
+// Start of loopStaff Daily for 2019-10-21
 export const loopStaff = (obj) => {
         let staffEmail = [];
         obj.forEach(item => {
