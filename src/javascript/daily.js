@@ -4,54 +4,74 @@
 
 export const data = {
         staff: [
-            { fname: "Jane", lname: "Smith", balance: 10 },
-            { fname: "Liam", lname: "Henry", balance: 1000 },
-            { fname: "Emma", lname: "Jones", balance: 1330 },
-            { fname: "Olivia", lname: "Notly", balance: 310 },
-            { fname: "Noah", lname: "Ho", balance: 503 },
-            { fname: "William", lname: "Lee", balance: 520 },
-            { fname: "Benjamin", lname: "Amis", balance: 150 },
+                { fname: "Jane", lname: "Smith", balance: 10 },
+                { fname: "Liam", lname: "Henry", balance: 1000 },
+                { fname: "Emma", lname: "Jones", balance: 1330 },
+                { fname: "Olivia", lname: "Notly", balance: 310 },
+                { fname: "Noah", lname: "Ho", balance: 503 },
+                { fname: "William", lname: "Lee", balance: 520 },
+                { fname: "Benjamin", lname: "Amis", balance: 150 },
         ],
         company: "EvolveU",
         city: "Calgary",
         prov: "Alberta"
-    };
-    
-    
-    /*	
-            Loop through data.staff object sending each staff memeber to the makeEmailObj to
-             create an email array.
-            Then the test should be able to read that new array in order to get the desired email
-            address. 
-    */
+};
 
-// Start of loopStaff Daily for 2019-10-24
-export const loopStaffIn = (obj) => {
+
+/*	
+        Loop through data.staff object sending each staff memeber to the makeEmailObj to
+         create an email array.
+        Then the test should be able to read that new array in order to get the desired email
+        address. 
+*/
+// Start of loopStaff each / map Daily for 2019-10-25
+
+export const loopStaffMap = (objArr) => {
         let staffEmail = [];
-        let item;
-        for (item in obj) {
-                staffEmail.push(makeEmailObj(obj[item]));
+        objArr.map(staffMember => {
+                staffEmail.push(makeEmailObj(staffMember));
+        })
+        return staffEmail;
+}
+
+export const loopStaffForEach = (objArr) => {
+        let staffEmail = [];
+        objArr.forEach(staffMember => {
+                staffEmail.push(makeEmailObj(staffMember));
+        })
+        return staffEmail;
+}
+
+// Start of loopStaff in / of Daily for 2019-10-24
+export const loopStaffIn = (objArr) => {
+        let staffEmail = [];
+        let staffMember;
+        for (staffMember in objArr) {
+                staffEmail.push(makeEmailObj(objArr[staffMember]));
         }
         return staffEmail;
 }
-export const loopStaffOf = (obj) => {
+
+export const loopStaffOf = (objArr) => {
         let staffEmail = [];
-        let item;
-        for (item of obj) {
-                staffEmail.push(makeEmailObj(item));
+        let staffMember;
+        for (staffMember of objArr) {
+                staffEmail.push(makeEmailObj(staffMember));
         }
         return staffEmail;
 }
+
 // Start of loopStaff Daily for 2019-10-21
-export const loopStaff = (obj) => {
+export const loopStaff = (objArr) => {
         let staffEmail = [];
-        obj.forEach(item => {
-                staffEmail.push(makeEmailObj(item));
-        }); return staffEmail;
+        objArr.forEach(staffMember => {
+                staffEmail.push(makeEmailObj(staffMember));
+        })
+        return staffEmail;
 }
 
 
-  
+
 // Start of More Array Work Daily for 2019-10-16&17
 
 export const sliceExample = (p1) => {
@@ -70,7 +90,7 @@ export const spliceExample = (a, b) => {
 export const forEachExample = (a, b, c) => {
         let defaultArray = [a, b, c];
         let newArray = [];
-        defaultArray.forEach((num) => { newArray.push(num)});
+        defaultArray.forEach((num) => { newArray.push(num) });
         return newArray;
 }
 
@@ -120,7 +140,7 @@ export const exampleForLoop = (a, b, c) => {
         const defaultArray = [a, b, c];
         let newArray = [];
         let i;
-        for (i = 0; i < defaultArray.length ; i++) {
+        for (i = 0; i < defaultArray.length; i++) {
                 newArray[i] = defaultArray[i];
         }
         return newArray;
@@ -141,7 +161,7 @@ export const exampleDoWhileLoop = (a, b, c) => {
         const defaultArray = [a, b, c];
         let newArray = [];
         let i = 0;
-        do {newArray[i] = defaultArray[i]; i++;}
+        do { newArray[i] = defaultArray[i]; i++; }
         while (i < defaultArray.length);
         return newArray;
 }
