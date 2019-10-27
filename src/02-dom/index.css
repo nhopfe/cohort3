@@ -6,8 +6,10 @@
 }
 
 #basicDomContainer2 {
+    display: grid;
+    align-content: space-around;
     border: solid;
-    padding: .5cm 2cm 1cm 2cm;
+    padding: 5% 15% 10% 15%;
 }
 
 /* Working with Cards */

@@ -1,6 +1,7 @@
 const cards = {
-    count: 1,
+    count: 0,
     addCard: () => {
+        cards.count++;
         const newCard = document.createElement("div");
         newCard.className = "card";
         newCard.id = cards.count;
@@ -15,7 +16,6 @@ const cards = {
         newCard.appendChild(newCardAddBeforeButton);
         newCard.appendChild(newCardAddAfterButton);
         newCard.appendChild(newCardDeleteButton);
-        cards.count++;
         return newCard;
     },
 
@@ -24,17 +24,16 @@ const cards = {
     },
 
     addBefore: (panel, card) => {
-        console.log(card);
         panel.insertBefore(cards.addCard(), card);
     },
 
-    // addAfter: (panel, card) => {
-    //     panel.insertBefore(cards.addCard(), card.nextSibling);
-    // },
+    addAfter: (panel, card) => {
+        panel.insertBefore(cards.addCard(), card.nextSibling);
+    },
 
-    // deleteCard: (card) => {
-    //     card.remove();
-    // }
+    deleteCard: (card) => {
+        card.remove();
+    }
 };
 
 export default cards;

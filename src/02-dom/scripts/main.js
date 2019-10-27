@@ -1,39 +1,22 @@
-import cards from './functions.js'
+import cards from './workingWithCardsFunctions.js'
+import basicDomFuncs from './basicDomFunctions.js'
 
 // Basic Dom
 
-const domListener = document.getElementById('basicDomContainer2');
-const showButton = document.getElementById('basicDomShowButton');
-const addButton = document.getElementById('basicDomAddButton');
-const showList = document.getElementById('showListField');
-let list = document.getElementById('orderedList');
-
-const logParameter = (p1) => {
+basicDomContainer2.addEventListener("click", (p1) => {
     console.log(p1);
-}
-
-const displayItems = () => {
-    // showList.value = [];
-    let items = list.getElementsByTagName("li");
-    for (let i = 0; i < items.length; i++) {
-        showList.append(items[i].cloneNode(true));
+    const domList = document.getElementById('orderedList');
+    const showDomList = document.getElementById('showListField');
+    switch(event.target.textContent) {
+        case "Show":
+            showDomList.textContent = "";
+            basicDomFuncs.displayItems(domList, showDomList);
+            break;
+        case "Add":
+            basicDomFuncs.addLiTagToEnd(domList);
+            break;
     }
-
-}
-
-const addLiTagToEnd = () => {
-    let addLi = (text) => {
-        let li = document.createElement("li");
-        li.append(text);
-        list.append(li);
-    };
-    let listChildCount = list.childElementCount;
-    addLi("Item " + (listChildCount + 1));
-}
-
-domListener.addEventListener('click', logParameter);
-showButton.addEventListener('click', displayItems);
-addButton.addEventListener('click', addLiTagToEnd);
+})
 
 // Working with Cards Presentation Logic
 
@@ -50,7 +33,7 @@ leftPanel.addEventListener("click", () => {
             cards.addAfter(leftPanel, event.target.parentElement);
             break;
         case "Delete":
-            cards.deleteCard(leftPanel, event.target.parentElement);
+            cards.deleteCard(event.target.parentElement);
             break;
     }
 
