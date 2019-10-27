@@ -11,13 +11,13 @@ const functions = {
         newCard.textContent = "Card " + counter;
         // newCard.className = card;
     },
-    whatCards: (node) => {
+    // whatCards: (node) => {
         // loop through DOM. then add 
-        let cardsArray = [];
+        // let cardsArray = [];
         // node.forEach(card => {
 
         // }
-    },
+//     },
 };
 
 export default functions;
