@@ -3,7 +3,32 @@ import basicDomFuncs from './basicDomFunctions.js'
 
 // Basic DOM
 
+// const createBasicDom = () => {
+//     const myBasicDomDiv = document.createElement("div");
+//         const myList = document.createElement("OL");
+//         myBasicDomDiv.append(myList);
+//         const myShowList = document.createElement("INPUT");
+//         myShowList.setAttribute("type", "text");
+//         myBasicDomDiv.append(myShowList);
+//         const myAddListItemToEnd = () => {
+//             let myAddLi = (text) => {
+//                 let myLi = document.createElement("li");
+//                 myLi.append(text);
+//                 myList.append(myLi);
+//             }
+//             let myListChildCount = myList.childElementCount;
+//             myAddLi("Item " + (myListChildCount + 1));
+//         }
+//         myAddListItemToEnd();
+//         myAddListItemToEnd();
+//         myAddListItemToEnd();        
+// }
+
 describe('Basic DOM tests', () => {
+    // beforeEach(() => {
+    //     createBasicDom();
+    // });
+
     test('testing displayItems function', () => {
         const myBasicDomDiv = document.createElement("div");
         const myList = document.createElement("OL");
@@ -29,7 +54,8 @@ describe('Basic DOM tests', () => {
         myShowList.textContent = "";
         basicDomFuncs.displayItems(myList, myShowList);
         expect(myShowList.textContent).toBe("Item 1Item 2Item 3Item 4");
-    })
+    });
+
     test('testing addLiTagToEnd function', () => {
         const myBasicDomDiv = document.createElement("div");
         const myList = document.createElement("OL");
@@ -52,8 +78,8 @@ describe('Basic DOM tests', () => {
         expect(myList.textContent).toBe("Item 1Item 2Item 3");
         basicDomFuncs.addLiTagToEnd(myList);
         expect(myList.textContent).toBe("Item 1Item 2Item 3Item 4");
-    })
-})
+    });
+});
 
 // Working with Cards
 

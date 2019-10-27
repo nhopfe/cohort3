@@ -49,6 +49,7 @@
 
 .card {
     display: grid;
+    align-content: space-around;
     text-align: center;
     padding: 2% 5% 2% 5%;
     background-color: lightgrey;
