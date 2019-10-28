@@ -5,23 +5,23 @@ import basicDomFuncs from './basicDomFunctions.js'
 
 // const createBasicDom = () => {
 //     const myBasicDomDiv = document.createElement("div");
-//         const myList = document.createElement("OL");
-//         myBasicDomDiv.append(myList);
-//         const myShowList = document.createElement("INPUT");
-//         myShowList.setAttribute("type", "text");
-//         myBasicDomDiv.append(myShowList);
-//         const myAddListItemToEnd = () => {
-//             let myAddLi = (text) => {
-//                 let myLi = document.createElement("li");
-//                 myLi.append(text);
-//                 myList.append(myLi);
-//             }
-//             let myListChildCount = myList.childElementCount;
-//             myAddLi("Item " + (myListChildCount + 1));
-//         }
-//         myAddListItemToEnd();
-//         myAddListItemToEnd();
-//         myAddListItemToEnd();        
+//     const myList = document.createElement("OL");
+//     myBasicDomDiv.append(myList);
+//     const myShowList = document.createElement("INPUT");
+//     myShowList.setAttribute("type", "text");
+//     myBasicDomDiv.append(myShowList);
+//     const myAddListItemToEnd = () => {
+//          let myAddLi = (text) => {
+//              let myLi = document.createElement("li");
+//              myLi.append(text);
+//              myList.append(myLi);
+//          }
+//          let myListChildCount = myList.childElementCount;
+//          myAddLi("Item " + (myListChildCount + 1));
+//      }
+//      myAddListItemToEnd();
+//      myAddListItemToEnd();
+//      myAddListItemToEnd();        
 // }
 
 describe('Basic DOM tests', () => {
