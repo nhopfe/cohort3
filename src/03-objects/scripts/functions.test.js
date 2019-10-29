@@ -1,4 +1,5 @@
 import Account from './account.js'
+import accountFuncs from './account.js'
 
 const testAccount = new Account("test name", 0);
 

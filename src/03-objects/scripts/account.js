@@ -19,4 +19,11 @@ class Account {
     }
 }
 
+export const accountFuncs = {
+    addAccount: (accountName, balance) => {
+        accountDisplay.appendChild(accountName, balance);
+    },
+
+}
+
 export default Account;
