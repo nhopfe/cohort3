@@ -14,9 +14,23 @@
 
 // Write the function after this comment ---
 
-import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap } from './daily'
+import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances } from './daily'
 
-// describe.each([])
+// More Array Exercises Daily for 2019-10-29
+
+test('return the average of the balances', () => {
+    let testBalanceTotal = averageOfBalances([{ fname: "Who", lname: "Knows", balance: 1}, { fname: "Nobody", lname: "Cares", balance: 5}]);
+    expect(testBalanceTotal).toEqual(3);
+    let staffBalanceAverage = averageOfBalances(data.staff);
+    expect(staffBalanceAverage).toEqual(546);
+})
+
+test('return the total of balances', () => {
+    let testBalanceTotal = totalOfBalances([{ fname: "Who", lname: "Knows", balance: 1}, { fname: "Nobody", lname: "Cares", balance: 2}]);
+    expect(testBalanceTotal).toEqual(3);
+    let staffBalanceTotal = totalOfBalances(data.staff);
+    expect(staffBalanceTotal).toEqual(3823);
+})
 
 // loopStaff each / map Daily for 2019-10-25
 

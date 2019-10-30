@@ -24,6 +24,22 @@ export const data = {
         Then the test should be able to read that new array in order to get the desired email
         address. 
 */
+
+// Start of More Array Exercises Daily for 2019-10-29
+
+export const averageOfBalances = (objArr) => {
+        let balanceArray = objArr.map(a => a.balance);
+        let staffBalanceAverage = Math.round(balanceArray.reduce((a, b) => a + b, 0) / balanceArray.length);
+        return staffBalanceAverage;
+}
+
+export const totalOfBalances = (objArr) => {
+        let balanceArray = objArr.map(a => a.balance);
+        let staffBalanceTotal = balanceArray.reduce((a, b) => a + b, 0);
+        return staffBalanceTotal;
+        
+}
+
 // Start of loopStaff each / map Daily for 2019-10-25
 
 export const loopStaffMap = (objArr) => {
