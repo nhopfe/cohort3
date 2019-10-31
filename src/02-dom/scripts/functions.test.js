@@ -2,31 +2,28 @@ import cards from './workingWithCardsFunctions.js'
 import basicDomFuncs from './basicDomFunctions.js'
 
 // Basic DOM
-
-// const createBasicDom = () => {
-//     const myBasicDomDiv = document.createElement("div");
-//     const myList = document.createElement("OL");
-//     myBasicDomDiv.append(myList);
-//     const myShowList = document.createElement("INPUT");
-//     myShowList.setAttribute("type", "text");
-//     myBasicDomDiv.append(myShowList);
-//     const myAddListItemToEnd = () => {
-//          let myAddLi = (text) => {
-//              let myLi = document.createElement("li");
-//              myLi.append(text);
-//              myList.append(myLi);
-//          }
-//          let myListChildCount = myList.childElementCount;
-//          myAddLi("Item " + (myListChildCount + 1));
-//      }
-//      myAddListItemToEnd();
-//      myAddListItemToEnd();
-//      myAddListItemToEnd();        
-// }
+      
 
 describe('Basic DOM tests', () => {
     // beforeEach(() => {
-    //     createBasicDom();
+    //     const myBasicDomDiv = document.createElement("div");
+    //     const myList = document.createElement("OL");
+    //     myBasicDomDiv.append(myList);
+    //     const myShowList = document.createElement("INPUT");
+    //     myShowList.setAttribute("type", "text");
+    //     myBasicDomDiv.append(myShowList);
+    //     const myAddListItemToEnd = () => {
+    //          let myAddLi = (text) => {
+    //              let myLi = document.createElement("li");
+    //              myLi.append(text);
+    //              myList.append(myLi);
+    //          }
+    //          let myListChildCount = myList.childElementCount;
+    //          myAddLi("Item " + (myListChildCount + 1));
+    //      }
+    //      myAddListItemToEnd();
+    //      myAddListItemToEnd();
+    //      myAddListItemToEnd();  
     // });
 
     test('testing displayItems function', () => {
@@ -130,5 +127,4 @@ test('testing deleteCard function', () => {
     expect(cardList4[0].id).toBe("1");
     cards.deleteCard(cardList4[0]);
     expect(cardList4[0]).toBe(undefined);
-});
-
+})
