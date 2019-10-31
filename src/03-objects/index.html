@@ -1,24 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="./index.css">
-    <title>Comp130</title>
+    <title>Account Manager</title>
 </head>
+
 <body>
-    <div id="projectContainer">
-        <div id="createAccountContainer">
-            <input id="createAccountInput" type="text" name="New Account Name">
-            <button id="createAccountButton" type="button">Create Account</button>
-        </div>
-        <div id="accountContainer">
-            <h3>My Accounts</h3>
-            <div id="accountDisplay">
+    <div class="wrapper">
+        <div class="header">BANK</div>
+        <div class="container-left">
+            <span class="create-account-display-header">Create New Account</span>
+            <div class="create-account-display">
+                <br><span class="create-account-text">Account Name:</span><input type="text"
+                    class="create-account-name-input" id="idAccountNameInput">
+                <br><span class="create-account-text-input">Opening Balance:</span><input type="number"
+                    class="create-account-balance-input" id="idAccountBalanceInput">
+                <br><input type="submit" value="Create Account" class="button create-account-button"
+                    id="idCreateAcctButton">
             </div>
         </div>
+        <div class="container-middle" id="idMiddleContainer">
+            <span class="account-display-header">Accounts</span>
+            <div class="account-display" id="idAccountDisplay">
+
+            </div>
+        </div>
+        <div class="container-right">
+            <span class="container-right-display-header">Accounts Information</span>
+            <div class="balances-display top-display" id="idHighestDisplay">
+                <span class="container-right-display-text">Highest Account Balance:</span>
+                <span class="container-right-display-output" id="idHighest"></span>
+            </div>
+            <div class="balances-display bottom-display" id="idLowestDisplay">
+                <span class="container-right-display-text">Lowest Account Balance:</span>
+                <span class="container-right-display-output" id="idLowest"></span>
+            </div>
+        </div>
+
+        <div class="footer">Footer</div>
     </div>
     <script type="module" src="./scripts/index.js"></script>
 </body>
+
 </html>
