@@ -20,10 +20,10 @@ class Account {
 }
 
 export const accountFuncs = {
-    addAccount: (accountName, balance) => {
-        accountDisplay.appendChild(accountName, balance);
+    addAccount: (div, accountName, balance) => {
+        return div + accountName + balance + "test";
+        // accountDisplay.appendChild(accountName, balance);
     },
-
 }
 
 export default Account;
