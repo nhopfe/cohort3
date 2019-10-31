@@ -12,8 +12,6 @@
     p2--> 2
 */
 
-// Write the function after this comment ---
-
 import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances } from './daily'
 
 // More Array Exercises Daily for 2019-10-29
