@@ -12,7 +12,7 @@ const accountCreateButton = () => {
         idAccountNameInput.value = "";
         idAccountBalanceInput.value = "";
         return alert("Duplicate Account Name! Please choose another name.");
-    } else
+    } else {
         counter++;
         functions.createAccountDiv(idAccountDisplay, String(idAccountNameInput.value), idAccountBalanceInput.value, counter);
         accountList.addAccount(String(idAccountNameInput.value), idAccountBalanceInput.value, counter);
@@ -20,6 +20,7 @@ const accountCreateButton = () => {
         console.log(accountList);
         idAccountNameInput.value = "";
         idAccountBalanceInput.value = "";
+    }
 }
 
 const accountButtonSelector = (event) => {
