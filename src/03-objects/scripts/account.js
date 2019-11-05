@@ -1,3 +1,4 @@
+import functions from './account-functions.js';
 
 export class Account {
 
