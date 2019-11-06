@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="wrapper">
+            <span class="header"><h1>Community Management System</h1></span>
+            <div class="container-left">
+                <span class="container-left-header display-header">Add a City to the Community</span>
+                <div class="create-city-display">
+                        <p class="create-city-text">City Name:</p>
+                        <input type="text" class="create-city-name-input" id="idCityNameInput">
+                        <p class="create-city-text"> Latitude:</p>
+                        <input type="number" class="create-city-balance-input" id="idCityLatInput">
+                        <input type="radio" name="hemisphere" value="north"> North<br>
+                        <input type="radio" name="hemisphere" value="south"> South<br>
+                        <p class="create-city-text"> Longitude:</p>
+                        <input type="number" class="create-city-balance-input" id="idCityLongInput">
+                        <p class="create-city-text"> Population:</p>
+                        <input type="number" class="create-city-balance-input" id="idCityPopInput">
+                    <br><button class="button create-city-button" id="idCreateCityButton">Add City</button>
+                </div>
+            </div>
+            <div class="container-middle" id="idMiddleContainer">
+                <span class="container-middle-header display-header">Cities</span>
+                <div class="city-display" id="idCityDisplay">
+                    <!-- created city divs go here -->
+                </div>
+            </div>
+            <div class="container-right">
+                <span class="container-right-header display-header">citys Information</span>
+                <div class="balances-display top-display" id="idHighestDisplay">
+                    <span class="container-right-display-text">Highest Population</span>
+                    <p class="balances-display-balance" id="idHighest"></p>
+                    <p class="balances-display-balance-number" id="idHighestNumber"></p>
+                </div>
+                <div class="balances-display bottom-display" id="idLowestDisplay">
+                    <span class="container-right-display-text">Lowest Population</span>
+                    <p class="balances-display-balance" id="idLowest"></p>
+                    <p class="balances-display-balance-number" id="idLowestNumber"></p>
+                </div>
+            </div>
+    
+            <div class="footer">Give Us All Your People....</div>
+        </div>
+    <script type="module" src="./scripts/cities-index.js"></script>    
+</body>
+</html>
