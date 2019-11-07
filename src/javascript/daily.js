@@ -36,16 +36,17 @@ export const balancesGreaterThan1000 = (objArr) => {
 // Start of More Array Exercises Daily for 2019-10-29
 
 export const averageOfBalances = (objArr) => {
-        let balanceArray = objArr.map(a => a.balance);
-        let staffBalanceAverage = Math.round(balanceArray.reduce((a, b) => a + b, 0) / balanceArray.length);
-        return staffBalanceAverage;
+        let sum = objArr.reduce(function(total, currentValue) {
+                return total + currentValue.balance;
+        }, 0);
+        return Math.round(sum / objArr.length);
 }
 
 export const totalOfBalances = (objArr) => {
-        let balanceArray = objArr.map(a => a.balance);
-        let staffBalanceTotal = balanceArray.reduce((a, b) => a + b, 0);
-        return staffBalanceTotal;
-        
+        let sum = objArr.reduce(function(total, currentValue) {
+                return total + currentValue.balance;
+        }, 0);
+        return sum;
 }
 
 // Start of loopStaff each / map Daily for 2019-10-25
