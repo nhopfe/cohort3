@@ -25,6 +25,14 @@ export const data = {
         address. 
 */
 
+// Start of More Array Exercises (Really) Daily for 2019-11-06
+
+export const balancesGreaterThan1000 = (objArr) => {
+        const balanceArray = objArr.filter(objArr => objArr.balance >= 1000);
+        const largeNumberArr = balanceArray.map(a => a.balance);
+        return largeNumberArr;
+}
+
 // Start of More Array Exercises Daily for 2019-10-29
 
 export const averageOfBalances = (objArr) => {

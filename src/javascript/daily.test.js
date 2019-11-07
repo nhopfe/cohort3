@@ -12,7 +12,17 @@
     p2--> 2
 */
 
-import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances } from './daily'
+import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances, balancesGreaterThan1000 } from './daily'
+
+
+// More Array Exercises (Really) Daily for 2019-11-06
+
+test('create array with balances >= 1000', () => {
+    const staffData = data.staff;
+    const testObjArr = [{ fname: "Test", lname: "Test2", balance: 1500}];
+    expect(balancesGreaterThan1000(testObjArr)).toEqual([1500]);
+    expect(balancesGreaterThan1000(staffData)).toEqual([1000, 1330]);
+})
 
 // More Array Exercises Daily for 2019-10-29
 
