@@ -7,7 +7,7 @@ export class City {
         this.latitude = latitude;
         this.longitude = longitude;
         this.population = population;
-        
+
     }
 
     show() {
@@ -31,26 +31,25 @@ export class City {
     }
 
     howBig() {
-        if (this.population >= 1 && this.population <= 100) {return "Hamlet"};
-        if (this.population <= 1000) {return "Village"};
-        if (this.population <= 20000) {return "Town"};
-        if (this.population <= 100000) {return "Large Town"};
+        if (this.population >= 1 && this.population <= 100) { return "Hamlet" };
+        if (this.population <= 1000) { return "Village" };
+        if (this.population <= 20000) { return "Town" };
+        if (this.population <= 100000) { return "Large Town" };
         return "City"
     }
 }
 
 export class Community {
-    constructor (communityName) {
+    constructor(communityName) {
         this.communityName = communityName;
         this.counter = 0
 
     }
-    
+
     createCity(parent, name, lat, long, pop) {
         this.counter++;
         const a = new City(name, lat, long, pop, this.counter);
         this[`key${this.counter}`] = a;
         functions.createCityDiv(parent, name, lat, long, pop, this.counter)
-    }   
-
+    }
 }

@@ -42,19 +42,19 @@ const functions = {
         const newMoveOutButton = document.createElement("button");
         newMoveOutButton.textContent = "Move Out";
         newMoveOutButton.id = `id-${key}-move-out-button`;
-        newMoveOutButton.setAttribute("class","move-out-button city-button");
+        newMoveOutButton.setAttribute("class", "move-out-button city-button");
         newCityCard.appendChild(newMoveOutButton);
 
         const newDeleteButton = document.createElement("button");
         newDeleteButton.textContent = "Delete City";
         newDeleteButton.id = `id-${key}-delete-button`;
-        newDeleteButton.setAttribute("class","delete-button city-button");
+        newDeleteButton.setAttribute("class", "delete-button city-button");
         newCityCard.appendChild(newDeleteButton);
     },
 
-        deletecityCard: (button) => {
-            return button.parentNode.parentNode.removeChild(button.parentNode);
-        }
+    deleteCityCard: (button) => {
+        return button.parentNode.parentNode.removeChild(button.parentNode);
+    }
 };
 
 export default functions;
