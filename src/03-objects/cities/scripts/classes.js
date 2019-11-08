@@ -52,4 +52,9 @@ export class Community {
         this[`key${this.counter}`] = a;
         functions.createCityDiv(parent, name, lat, long, pop, this.counter)
     }
+
+    deleteCity(key) {
+        delete this[key];
+        console.log(this);
+    }
 }

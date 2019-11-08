@@ -4,7 +4,7 @@ const functions = {
         const newCityCard = document.createElement("div");
         newCityCard.id = `id-${key}`.toLowerCase();
         newCityCard.setAttribute("class", "city-card");
-        newCityCard.setAttribute("key", key);
+        newCityCard.setAttribute("key", `key${key}`);
         parent.appendChild(newCityCard);
 
         const newSpanName = document.createElement("span");

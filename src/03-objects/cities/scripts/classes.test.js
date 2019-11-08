@@ -88,3 +88,15 @@ test('test deleteCityCard', () => {
     functions.deleteCityCard(button);
     expect(grandParent.childNodes[0]).toEqual(undefined);
 });
+
+test('test deleteCity object', () => {
+    let myDiv = document.createElement("div");
+    const cityList9 = new Community("NukeTown");
+    cityList9.createCity(myDiv, "fatboy", 7, 68, 1)
+    expect(cityList9.key1.name).toEqual('fatboy');
+    // console.log(cityList9)
+    cityList9.deleteCity(key1);
+    // delete cityList9.key1;
+    expect(cityList9.key1).toEqual(undefined);
+
+})
