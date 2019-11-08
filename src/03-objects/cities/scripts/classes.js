@@ -43,18 +43,19 @@ export class Community {
     constructor(communityName) {
         this.communityName = communityName;
         this.counter = 0
+        this.cities = {}
 
     }
 
     createCity(parent, name, lat, long, pop) {
         this.counter++;
         const a = new City(name, lat, long, pop, this.counter);
-        this[`key${this.counter}`] = a;
+        this.cities[`key${this.counter}`] = a;
         functions.createCityDiv(parent, name, lat, long, pop, this.counter)
     }
 
     deleteCity(key) {
-        delete this[key];
-        console.log(this);
+        delete this.cities[key];
+        // console.log(this);
     }
 }

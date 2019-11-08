@@ -6,7 +6,7 @@ import functions from './cities.js'
 test('testing createCityDiv', () => {
     let myDiv = document.createElement("div");
     functions.createCityDiv(myDiv, "TestCity", 50, 100, 25000, 1)
-    expect(myDiv.children[0].getAttribute("key")).toBe("1");
+    expect(myDiv.children[0].getAttribute("key")).toBe("key1");
     expect(myDiv.children[0].childElementCount).toBe(8);
 })
 
@@ -27,11 +27,11 @@ test('testing createCity', () => {
     const cityList3 = new Community("pittsburge")
     cityList3.createCity(myDiv, "Bobville", 74, 58, 900)
 
-    expect(cityList3.key1.key).toEqual(1);
-    expect(cityList3.key1.latitude).toEqual(74);
-    expect(cityList3.key1.longitude).toEqual(58);
-    expect(cityList3.key1.name).toEqual("Bobville");
-    expect(cityList3.key1.population).toEqual(900);
+    expect(cityList3.cities.key1.key).toEqual(1);
+    expect(cityList3.cities.key1.latitude).toEqual(74);
+    expect(cityList3.cities.key1.longitude).toEqual(58);
+    expect(cityList3.cities.key1.name).toEqual("Bobville");
+    expect(cityList3.cities.key1.population).toEqual(900);
 })
 
 
@@ -41,7 +41,7 @@ test('testing show', () => {
     cityList5.createCity(myDiv, "CruellaStevil", 7, 9000, 500)
 
 
-    expect(cityList5.key1.show()).toEqual("CruellaStevil 7 9000 500");
+    expect(cityList5.cities.key1.show()).toEqual("CruellaStevil 7 9000 500");
 })
 
 test('testing movedIn', () => {
@@ -49,8 +49,8 @@ test('testing movedIn', () => {
     const cityList6 = new Community("pittsburge")
     cityList6.createCity(myDiv, "SonicTown", 7, 68, 600)
 
-    expect(cityList6.key1.population).toEqual(600);
-    expect(cityList6.key1.movedIn(900)).toEqual(1500);
+    expect(cityList6.cities.key1.population).toEqual(600);
+    expect(cityList6.cities.key1.movedIn(900)).toEqual(1500);
 })
 
 test('testing movedOut', () => {
@@ -58,8 +58,8 @@ test('testing movedOut', () => {
     const cityList7 = new Community("pittsburge")
     cityList7.createCity(myDiv, "Testtown", 7, 68, 1000)
 
-    expect(cityList7.key1.population).toEqual(1000);
-    expect(cityList7.key1.movedOut(100)).toEqual(900);
+    expect(cityList7.cities.key1.population).toEqual(1000);
+    expect(cityList7.cities.key1.movedOut(100)).toEqual(900);
 })
 
 test('testing howBig', () => {
@@ -71,11 +71,11 @@ test('testing howBig', () => {
     cityList8.createCity(myDiv, "four", 7, 68, 20500)
     cityList8.createCity(myDiv, "five", 7, 68, 9999999)
 
-    expect(cityList8.key1.howBig()).toEqual("Hamlet");
-    expect(cityList8.key2.howBig()).toEqual("Village");
-    expect(cityList8.key3.howBig()).toEqual("Town");
-    expect(cityList8.key4.howBig()).toEqual("Large Town");
-    expect(cityList8.key5.howBig()).toEqual("City");
+    expect(cityList8.cities.key1.howBig()).toEqual("Hamlet");
+    expect(cityList8.cities.key2.howBig()).toEqual("Village");
+    expect(cityList8.cities.key3.howBig()).toEqual("Town");
+    expect(cityList8.cities.key4.howBig()).toEqual("Large Town");
+    expect(cityList8.cities.key5.howBig()).toEqual("City");
 })
 
 test('test deleteCityCard', () => {
@@ -87,15 +87,16 @@ test('test deleteCityCard', () => {
     expect(String(grandParent.childNodes[0])).toEqual("[object HTMLDivElement]");
     functions.deleteCityCard(button);
     expect(grandParent.childNodes[0]).toEqual(undefined);
-});
+})
 
 test('test deleteCity object', () => {
     let myDiv = document.createElement("div");
     const cityList9 = new Community("NukeTown");
     cityList9.createCity(myDiv, "fatboy", 7, 68, 1)
-    expect(cityList9.key1.name).toEqual('fatboy');
+    cityList9.createCity(myDiv, "fatboy", 7, 68, 1)
+    expect(cityList9.cities.key1.name).toEqual('fatboy');
     // console.log(cityList9)
-    cityList9.deleteCity(key1);
+    cityList9.deleteCity("key1");
     // delete cityList9.key1;
     expect(cityList9.key1).toEqual(undefined);
 
