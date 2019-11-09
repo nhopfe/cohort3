@@ -12,10 +12,9 @@ export class City {
 
     show() {
         const mtArr = [];
-        mtArr.push(String(this.name))
-        mtArr.push(String(this.latitude))
-        mtArr.push(String(this.longitude))
-        mtArr.push(String(this.population))
+        mtArr.push("Latitude: " + String(this.latitude))
+        mtArr.push("Longitude: " + String(this.longitude))
+        mtArr.push("Population: " + String(this.population))
         const reducer = (accumulator, currentValue) => accumulator + " " + currentValue;
         return mtArr.reduce(reducer)
     }

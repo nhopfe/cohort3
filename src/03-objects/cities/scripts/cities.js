@@ -12,20 +12,9 @@ const functions = {
         newSpanName.textContent = name;
         newCityCard.appendChild(newSpanName);
 
-        const newSpanLatitude = document.createElement("span");
-        newSpanLatitude.setAttribute("class", "city-latitude");
-        newSpanLatitude.textContent = Number(latitude);
-        newCityCard.appendChild(newSpanLatitude);
-
-        const newSpanLongitude = document.createElement("span");
-        newSpanLongitude.setAttribute("class", "city-longitude");
-        newSpanLongitude.textContent = Number(longitude);
-        newCityCard.appendChild(newSpanLongitude);
-
-        const newSpanPopulation = document.createElement("span");
-        newSpanPopulation.setAttribute("class", "city-population");
-        newSpanPopulation.textContent = Number(population);
-        newCityCard.appendChild(newSpanPopulation);
+        const newSpanShow = document.createElement("span");
+        newSpanShow.setAttribute("class", "city-show");
+        newCityCard.appendChild(newSpanShow);
 
         const newInput = document.createElement("input");
         newInput.type = "number";

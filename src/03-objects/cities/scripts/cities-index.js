@@ -22,24 +22,24 @@ const cardButtons = () => {
     console.log(event.target.textContent);
     if (event.target.textContent == "Show") {
         const cardKey = targetCard.getAttribute('key')
-        community.cities[cardKey].show();
+        targetCard.children[1].textContent = community.cities[cardKey].show();
     }
     if (event.target.textContent == "Move In") {
         const cardKey = targetCard.getAttribute('key')
-        const input = Number(targetCard.children[4].value)
+        const input = Number(targetCard.children[2].value)
         community.cities[cardKey].movedIn(input)
-        targetCard.children[3].textContent = Number(community.cities[cardKey].population)
+        // targetCard.children[2].textContent = Number(community.cities[cardKey].population)
     }
     if (event.target.textContent == "Move Out") {
         const cardKey = targetCard.getAttribute('key')
-        const input = Number(targetCard.children[4].value)
+        const input = Number(targetCard.children[2].value)
         community.cities[cardKey].movedOut(input)
-        targetCard.children[3].textContent = Number(community.cities[cardKey].population)
+        // targetCard.children[2].textContent = Number(community.cities[cardKey].population)
     }
     if (event.target.textContent == "Delete City") {
         const cardKey = targetCard.getAttribute('key')
         functions.deleteCityCard(event.target);
-        community.cities.deleteCity(cardKey);
+        community.deleteCity(cardKey);
     }
 
 
