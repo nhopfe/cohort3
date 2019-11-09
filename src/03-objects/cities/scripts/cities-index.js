@@ -36,6 +36,10 @@ const cardButtons = () => {
         community.cities[cardKey].movedOut(input)
         // targetCard.children[2].textContent = Number(community.cities[cardKey].population)
     }
+    if (event.target.textContent == "How Big") {
+        const cardKey = targetCard.getAttribute('key')
+        targetCard.children[1].textContent = community.cities[cardKey].howBig();
+    }
     if (event.target.textContent == "Delete City") {
         const cardKey = targetCard.getAttribute('key')
         functions.deleteCityCard(event.target);
