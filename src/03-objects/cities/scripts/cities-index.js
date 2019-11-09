@@ -20,23 +20,29 @@ const createCity = () => {
 const cardButtons = () => {
     const targetCard = event.target.parentNode
     console.log(event.target.textContent);
-    if (event.target.textContent == "Delete City") {
+    if (event.target.textContent == "Show") {
         const cardKey = targetCard.getAttribute('key')
-        functions.deleteCityCard(event.target);
-        community.deleteCity(cardKey)
+        community.cities[cardKey].show();
     }
     if (event.target.textContent == "Move In") {
         const cardKey = targetCard.getAttribute('key')
         const input = Number(targetCard.children[4].value)
-        community[cardKey].movedIn(input)
-        targetCard.children[3].textContent = Number(community[cardKey].population)
+        community.cities[cardKey].movedIn(input)
+        targetCard.children[3].textContent = Number(community.cities[cardKey].population)
     }
     if (event.target.textContent == "Move Out") {
         const cardKey = targetCard.getAttribute('key')
         const input = Number(targetCard.children[4].value)
-        community[cardKey].movedOut(input)
-        targetCard.children[3].textContent = Number(community[cardKey].population)
-    }    
+        community.cities[cardKey].movedOut(input)
+        targetCard.children[3].textContent = Number(community.cities[cardKey].population)
+    }
+    if (event.target.textContent == "Delete City") {
+        const cardKey = targetCard.getAttribute('key')
+        functions.deleteCityCard(event.target);
+        community.cities.deleteCity(cardKey);
+    }
+
+
 }
 
 

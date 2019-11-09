@@ -33,6 +33,12 @@ const functions = {
         newInput.setAttribute("class", "city-input");
         newCityCard.appendChild(newInput);
 
+        const newShowButton = document.createElement("button");
+        newShowButton.textContent = "Show";
+        newShowButton.id = `id-${key}-show-button`;
+        newShowButton.setAttribute("class", "show-button city-button");
+        newCityCard.appendChild(newShowButton);
+
         const newMoveInButton = document.createElement("button");
         newMoveInButton.textContent = "Move In";
         newMoveInButton.id = `id-${key}-move-in-button`;
@@ -44,6 +50,12 @@ const functions = {
         newMoveOutButton.id = `id-${key}-move-out-button`;
         newMoveOutButton.setAttribute("class", "move-out-button city-button");
         newCityCard.appendChild(newMoveOutButton);
+
+        const newHowBigButton = document.createElement("button");
+        newHowBigButton.textContent = "How Big";
+        newHowBigButton.id = `id-${key}-how-big-button`;
+        newHowBigButton.setAttribute("class", "how-big-button city-button");
+        newCityCard.appendChild(newHowBigButton);
 
         const newDeleteButton = document.createElement("button");
         newDeleteButton.textContent = "Delete City";
