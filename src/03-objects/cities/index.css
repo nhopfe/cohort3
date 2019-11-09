@@ -19,7 +19,6 @@ body {
 .footer {
     grid-area: footer;
     text-align: center;
-    position: fixed;
     width: 100%;
     bottom: 0;
 }
@@ -31,6 +30,8 @@ body {
       'header header header header' 
       'left  middle middle right' 
       'footer footer footer footer';
+      background-image: url("https://cdn.pixabay.com/photo/2017/08/25/06/54/street-map-2679271_960_720.jpg");
+
 }
   
 .container-left,
@@ -40,7 +41,8 @@ body {
     padding: 2%;
     border: solid 1px rgb(0, 217, 255);
     background-color: rgb(206, 241, 247);
-    opacity: 50%;
+    opacity: 90%;
+
 }
 
 .display-header {
@@ -64,6 +66,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 50%);
     height: fit-content;
+    opacity: 100%;
 }
 
 .create-city-text,
@@ -83,16 +86,40 @@ body {
 }
 
 .city-display {
+    display: grid;
     height: 450px;
-    overflow: auto;
+    overflow-y: scroll;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .city-card {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    height: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    height: fit-content;
+    width: 1fr;
     padding: 10px;
     align-items: center;
+}
+
+.city-name {
+    grid-column: 1 /span 3;
+}
+
+.city-show {
+    grid-column: 1 /span 3;
+ 
+}
+
+.city-input {
+    grid-column: 1 /span 3;
+    
+}
+
+.city-info {
+    border-style: solid;
+    grid-row-start: 2;
+    
 }
 
 .city-card:nth-child(odd) {background-color:  rgb(0, 217, 255);}
@@ -102,7 +129,8 @@ body {
 }
 
 .city-button {
-    margin: 0px 5px 0px 5px;
+    margin: 5px 5px 0px 5px;
+    font-size: 12px;
 }
 
 .create-city-text,

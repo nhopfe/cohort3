@@ -36,6 +36,13 @@ export class City {
         if (this.population <= 100000) { return "Large Town" };
         return "City"
     }
+
+    whichSphere() {
+        if (this.latitude > 0 && this.latitude <= 90) { return "Northern Hemisphere" };
+        if (this.latitude == 0) { return "On the Equator" };
+        if (this.latitude >= -90 && this.latitude < 0) { return "Southern Hemisphere" };
+        return "Invalid Latitude"
+    }
 }
 
 export class Community {

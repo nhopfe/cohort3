@@ -40,6 +40,10 @@ const cardButtons = () => {
         const cardKey = targetCard.getAttribute('key')
         targetCard.children[1].textContent = community.cities[cardKey].howBig();
     }
+    if (event.target.textContent == "Show Hemisphere") {
+        const cardKey = targetCard.getAttribute('key')
+        targetCard.children[1].textContent = community.cities[cardKey].whichSphere();
+    }
     if (event.target.textContent == "Delete City") {
         const cardKey = targetCard.getAttribute('key')
         functions.deleteCityCard(event.target);

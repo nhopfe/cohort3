@@ -46,6 +46,12 @@ const functions = {
         newHowBigButton.setAttribute("class", "how-big-button city-button");
         newCityCard.appendChild(newHowBigButton);
 
+        const newWhichSphereButton = document.createElement("button");
+        newWhichSphereButton.textContent = "Show Hemisphere"
+        newWhichSphereButton.setAttribute("class", "hemisphere-show");
+        newWhichSphereButton.id = `id-${key}-which-sphere-button`;
+        newCityCard.appendChild(newWhichSphereButton);
+
         const newDeleteButton = document.createElement("button");
         newDeleteButton.textContent = "Delete City";
         newDeleteButton.id = `id-${key}-delete-button`;
