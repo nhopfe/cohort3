@@ -5,7 +5,7 @@ body {
 .header,
 .footer {
       color: white;
-      background-color: rgba(218, 205, 89, 0.952);
+      background-color: #78cf50;
       padding: 2%;
 }
 
@@ -39,8 +39,8 @@ body {
 .container-right {
     margin: 2%;
     padding: 2%;
-    border: solid 3px #91F100;
-    background-color: rgba(218, 205, 89, 0.877);
+    border: solid 3px #396b8c;
+    background-color: #78cf50;
     opacity: 90%;
 
 }
@@ -52,7 +52,7 @@ body {
 .create-city-display,
 .city-display,
 .balances-display {
-    border: solid 3px #91F100;
+    border: solid 3px #396b8c;
     margin: 5%;
     padding: 2%;
 }
@@ -89,13 +89,14 @@ body {
     display: grid;
     height: 450px;
     overflow-y: scroll;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
 }
 
 .city-card {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     height: fit-content;
     width: 1fr;
     padding: 10px;
@@ -103,16 +104,17 @@ body {
 }
 
 .city-name {
-    grid-column: 1 /span 3;
+    grid-column: 1 /span 2;
 }
 
 .city-show {
-    grid-column: 1 /span 3;
- 
+    font-size: 12px;
+    grid-column: 1 /span 2;
+    height: 30 px; 
 }
 
 .city-input {
-    grid-column: 1 /span 3;
+    grid-column: 1 /span 2;
     
 }
 
@@ -122,7 +124,7 @@ body {
     
 }
 
-.city-card:nth-child(odd) {background-color:  #91F100;}
+.city-card:nth-child(odd) {background-color:  #396b8c;}
 
 .city-input {
     margin: 0px 5px 0px 15px;

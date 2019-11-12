@@ -113,5 +113,14 @@ test('test deleteCity object', () => {
     expect(cityList9.cities.key1.name).toEqual('fatboy');
     cityList9.deleteCity("key1");
     expect(cityList9.key1).toEqual(undefined);
-
 })
+
+// test('test mostNorthern', () => {
+//     let myDiv = document.createElement("div");
+//     const cityList = new Community("pittsburge")
+//     cityList.createCity(myDiv, "one", -50, 10, 500)
+//     cityList.createCity(myDiv, "two", 0, 10, 500)
+//     cityList.createCity(myDiv, "three", 50, 10, 500)
+
+//     expect(cityList.mostNorthern()).toBe("three");
+// })

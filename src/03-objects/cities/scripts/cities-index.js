@@ -8,9 +8,9 @@ const createCity = () => {
     let newLat = Number(document.getElementById("idCityLatInput").value);
     let newLong = Number(document.getElementById("idCityLongInput").value);
     let newPop = Number(document.getElementById("idCityPopInput").value);
-    let mostNorthernCity = document.getElementById("idMostNorthern").textContent;
-    let mostSouthernCity = document.getElementById("idMostSouthern").textContent;
-    let totalPop = document.getElementById("idTotalPopDisplay").textContent;
+    // let mostNorthernCity = document.getElementById("idMostNorthern").textContent;
+    // let mostSouthernCity = document.getElementById("idMostSouthern").textContent;
+    // let totalPop = document.getElementById("idTotalPopDisplay").textContent;
     // console.log(typeof(newLat));
     if ((newLat < -90) || (newLat > 90)) {
         return alert("Latitude must be a number between -90 and 90");
@@ -19,9 +19,9 @@ const createCity = () => {
     } else {
         community.createCity(parent, newName, newLat, newLong, newPop);
         console.log(community);
-        mostNorthernCity = community.mostNorthern();
-        mostSouthernCity = community.mostSouthern();
-        totalPop = community.totalPopulation();
+        // mostNorthernCity = community.mostNorthern();
+        // mostSouthernCity = community.mostSouthern();
+        // totalPop = community.totalPopulation();
     }
 
 };

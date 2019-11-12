@@ -7,7 +7,6 @@ export class City {
         this.latitude = latitude;
         this.longitude = longitude;
         this.population = population;
-
     }
 
     show() {
@@ -48,9 +47,8 @@ export class City {
 export class Community {
     constructor(communityName) {
         this.communityName = communityName;
-        this.counter = 0
-        this.cities = {}
-
+        this.counter = 0;
+        this.cities = {};
     }
 
     createCity(parent, name, lat, long, pop) {
@@ -65,9 +63,26 @@ export class Community {
         // console.log(this);
     }
 
-    // latitudeArray: 
-
     // mostNorthern() {
+    //     const obj = this.cities;
 
+    //     Object.keys(obj).forEach(function(key) {
+
+    //         // console.log(obj[key])
+    //         let biggest = 0;
+    //         let next = obj[key];
+
+    //         if (next > biggest) {
+    //             next = biggest
+    //             console.log(biggest);
+    //         }
+
+    //         return biggest;
+
+    //     });
+    // }
+
+    // mostSouthern() {
+    //     return this.cities.reduce((min, p) => p.latitude < min ? p.latitude : min, this.cities[0].latitude);
     // }
 }
