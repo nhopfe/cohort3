@@ -1,6 +1,6 @@
 const functions = {
 
-    createCityDiv: (parent, name, latitude, longitude, population, key) => {
+    createCityDiv: (parent, name, key) => {
         const newCityCard = document.createElement("div");
         newCityCard.id = `id-${key}`.toLowerCase();
         newCityCard.setAttribute("class", "city-card");

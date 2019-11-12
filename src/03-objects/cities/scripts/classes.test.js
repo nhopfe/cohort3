@@ -1,15 +1,13 @@
 import { City, Community } from './classes.js'
 import functions from './cities.js'
 
-
-
 test('testing createCityDiv', () => {
     let myDiv = document.createElement("div");
-    functions.createCityDiv(myDiv, "TestCity", 50, 100, 25000, 1)
-    expect(myDiv.children[0].getAttribute("key")).toBe("key1");
-    expect(myDiv.children[0].childElementCount).toBe(8);
-})
+    functions.createCityDiv(myDiv, "TestCity", 1);
 
+    expect(myDiv.children[0].getAttribute("key")).toBe("key1");
+    expect(myDiv.children[0].childElementCount).toBe(9);
+})
 
 test('testing City', () => {
     const a = new City("Testville", 49, 0, 500, "key1");
@@ -34,14 +32,13 @@ test('testing createCity', () => {
     expect(cityList3.cities.key1.population).toEqual(900);
 })
 
-
 test('testing show', () => {
     let myDiv = document.createElement("div");
     const cityList5 = new Community("pittsburge")
     cityList5.createCity(myDiv, "CruellaStevil", 7, 9000, 500)
 
 
-    expect(cityList5.cities.key1.show()).toEqual("CruellaStevil 7 9000 500");
+    expect(cityList5.cities.key1.show()).toEqual("Latitude: 7 Longitude: 9000 Population: 500");
 })
 
 test('testing movedIn', () => {
@@ -78,12 +75,30 @@ test('testing howBig', () => {
     expect(cityList8.cities.key5.howBig()).toEqual("City");
 })
 
+test('testing whichSphere', () => {
+    const a = new City("Testville1", 49, 0, 500, "key1");
+    const b = new City("Testville2", 0, 0, 500, "key2");
+    const c = new City("Testville3", -49, 0, 500, "key3");
+    const d = new City("Testville4", 1000, 0, 500, "key4")
+    const cityList = {};
+    cityList[a.key] = a;
+    cityList[b.key] = b;
+    cityList[c.key] = c;
+    cityList[d.key] = d;
+
+    expect(cityList.key1.whichSphere()).toEqual("Northern Hemisphere");
+    expect(cityList.key2.whichSphere()).toEqual("On the Equator");
+    expect(cityList.key3.whichSphere()).toEqual("Southern Hemisphere");
+    expect(cityList.key4.whichSphere()).toEqual("Invalid Latitude");
+})
+
 test('test deleteCityCard', () => {
     const grandParent = document.createElement("div");
     const parent = document.createElement("div");
     const button = document.createElement("div");
     parent.appendChild(button);
     grandParent.appendChild(parent);
+
     expect(String(grandParent.childNodes[0])).toEqual("[object HTMLDivElement]");
     functions.deleteCityCard(button);
     expect(grandParent.childNodes[0]).toEqual(undefined);
@@ -92,12 +107,11 @@ test('test deleteCityCard', () => {
 test('test deleteCity object', () => {
     let myDiv = document.createElement("div");
     const cityList9 = new Community("NukeTown");
+
     cityList9.createCity(myDiv, "fatboy", 7, 68, 1)
     cityList9.createCity(myDiv, "fatboy", 7, 68, 1)
     expect(cityList9.cities.key1.name).toEqual('fatboy');
-    // console.log(cityList9)
     cityList9.deleteCity("key1");
-    // delete cityList9.key1;
     expect(cityList9.key1).toEqual(undefined);
 
 })
