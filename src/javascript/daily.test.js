@@ -12,8 +12,15 @@
     p2--> 2
 */
 
-import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances, balancesGreaterThan1000 } from './daily'
+import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances, balancesGreaterThan1000, people, provLoop } from './daily'
 
+// Callback Exercise (Part1) Daily for 2019-11-08
+
+test('Albertans', () => {
+    const prov = provLoop(people);
+    expect(prov[0]).toEqual("Alex Smith");
+    expect(prov[1]).toEqual("Angela Jones");
+})
 
 // More Array Exercises (Really) Daily for 2019-11-06
 
