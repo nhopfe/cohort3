@@ -65,6 +65,7 @@ export class Community {
 
     // mostNorthern() {
     //     const obj = this.cities;
+    //      try 'for of' or 'for in'
 
     //     Object.keys(obj).forEach(function(key) {
 
