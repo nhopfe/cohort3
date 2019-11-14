@@ -55,6 +55,7 @@ export const serverFunctions = {
       community.cities[`key${key}`] = a;
     })
     community.counter = biggest;
+    console.log(community.cities);
   },
 
   readServer: async (key) => {

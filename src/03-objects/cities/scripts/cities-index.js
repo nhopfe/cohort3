@@ -22,7 +22,7 @@ const createCity = () => {
         return alert("Longitude must be a number between -180 and 180");
     } else {
         community.createCity(parent, newName, newLat, newLong, newPop);
-        console.log(JSON.stringify(community));
+        // console.log(JSON.stringify(community));
         // mostNorthernCity = community.mostNorthern();
         // mostSouthernCity = community.mostSouthern();
         // totalPop = community.totalPopulation();
@@ -58,10 +58,10 @@ const cardButtons = () => {
     if (event.target.textContent == "Delete City") {
         const cardKey = targetCard.getAttribute('key')
         functions.deleteCityCard(event.target);
+        let deleteObj = community.findKey(cardKey);
+        serverFunctions.deleteServer(deleteObj);
         community.deleteCity(cardKey);
     }
-
-
 }
 
 

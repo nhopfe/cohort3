@@ -58,6 +58,12 @@ export class Community {
         functions.createCityDiv(parent, name, this.counter);
     }
 
+    findKey(cardKey) {
+        const keyValue = (this.cities[cardKey].key);
+        const deleteObj = {"key": keyValue};
+        return deleteObj;
+    }
+
     deleteCity(key) {
         delete this.cities[key];
         // console.log(this);

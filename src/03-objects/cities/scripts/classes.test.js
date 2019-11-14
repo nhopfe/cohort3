@@ -83,6 +83,15 @@ test('testing whichSphere', () => {
     expect(cityList.key4.whichSphere()).toEqual("Invalid Latitude");
 })
 
+test('findKey', () => {
+    const myDiv = document.createElement("div");
+    const cityList = new Community("NukeTown");
+    cityList.createCity(myDiv, "one", 7, 68, 1);
+    cityList.createCity(myDiv, "two", 7, 68, 2);
+    expect(cityList.findKey("key1")).toEqual({"key": 1});
+    expect(cityList.findKey("key2")).toEqual({"key": 2});
+})
+
 test('test deleteCity object', () => {
     let myDiv = document.createElement("div");
     const cityList9 = new Community("NukeTown");
