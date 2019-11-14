@@ -1,8 +1,12 @@
 import { Community } from './classes.js'
 import functions from './cities.js'
+import { serverFunctions } from './api.js'
 
 const community = new Community("The Greater Area");
 const parent = document.getElementById("idCityDisplay");
+
+serverFunctions.getDataOnStart(community, parent);
+
 const createCity = () => {
     let newName = document.getElementById("idCityNameInput").value;
     let newLat = Number(document.getElementById("idCityLatInput").value);
@@ -18,7 +22,7 @@ const createCity = () => {
         return alert("Longitude must be a number between -180 and 180");
     } else {
         community.createCity(parent, newName, newLat, newLong, newPop);
-        console.log(community);
+        console.log(JSON.stringify(community));
         // mostNorthernCity = community.mostNorthern();
         // mostSouthernCity = community.mostSouthern();
         // totalPop = community.totalPopulation();
