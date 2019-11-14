@@ -96,7 +96,7 @@ test('get Data', async () => {
     data = await serverFunctions.postData(url + 'add', community[1]);
     data = await serverFunctions.getData()
 
-    expect(data[0].name).toEqual("Calgary")
+    expect(data[0].name).toEqual("Calgary");
 
 })
 
@@ -117,4 +117,33 @@ test('get Data on start', async () => {
     expect(myDiv.childElementCount).toEqual(2);
     expect(myDiv.childNodes[1].getAttribute("key")).toEqual("key2");
 
+})
+
+test('readServer', async () => {
+    await serverFunctions.postData(url + 'clear');
+    await serverFunctions.postData(url + 'add', community[0]);
+    let data = await serverFunctions.readServer({key:1});
+    expect(data.status).toEqual(200);
+    expect(data.length).toBe(1);
+    expect(data[0].name).toBe("Calgary");
+})
+
+test('deleteServer', async () => {
+    await serverFunctions.postData(url + 'clear');
+    await serverFunctions.postData(url + 'add', community[0]);
+    await serverFunctions.postData(url + 'add', community[1]);
+    let data = await serverFunctions.deleteServer({key:1});
+    expect(data.status).toEqual(200);
+    data = await serverFunctions.readServer({key:1});
+    expect(data.status).toEqual(400);
+})
+
+test('updateServer', async () => {
+    await serverFunctions.postData(url + 'clear');
+    await serverFunctions.postData(url + 'add', community[0]);
+    let data = await serverFunctions.updateServer({"key":1,"name":"Cowtown", "latitude":51.05,"longitude":114.05,"population":1500000});
+    expect(data.status).toEqual(200);
+    data = await serverFunctions.readServer({key:1});
+    expect(data[0].name).toBe("Cowtown");
+    expect(data[0].population).toEqual(1500000);
 })

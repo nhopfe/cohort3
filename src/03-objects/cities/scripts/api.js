@@ -33,7 +33,6 @@ export const serverFunctions = {
   getData: async () => {
     const response = await fetch('http://localhost:5000/all');
     const myJson = await response.json();
-    // console.log(JSON.stringify(myJson))
     return myJson;
   },
 
@@ -56,6 +55,21 @@ export const serverFunctions = {
       community.cities[`key${key}`] = a;
     })
     community.counter = biggest;
-    console.log(community)
+  },
+
+  readServer: async (key) => {
+    const response = await serverFunctions.postData('http://localhost:5000/read', key);
+    return response;
+  },
+
+  deleteServer: async (key) => {
+    const response = await serverFunctions.postData('http://localhost:5000/delete', key);
+    return response;
+  },
+
+  updateServer: async (obj) => {
+    const response = await serverFunctions.postData('http://localhost:5000/update', obj);
+    return response;
   }
+
 }
