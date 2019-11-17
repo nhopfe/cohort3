@@ -1,4 +1,5 @@
 import functions from './cities.js'
+import { serverFunctions } from './api.js';
 
 export class City {
     constructor(name, latitude, longitude, population, key) {
@@ -56,6 +57,7 @@ export class Community {
         const a = new City(name, lat, long, pop, this.counter);
         this.cities[`key${this.counter}`] = a;
         functions.createCityDiv(parent, name, this.counter);
+        serverFunctions.postData('http://localhost:5000/add', a)
     }
 
     findKey(cardKey) {
@@ -68,28 +70,25 @@ export class Community {
         delete this.cities[key];
         // console.log(this);
     }
+    
+    mostNorthern() {
+        let citiesArr = Object.values(this.cities);
+        let res = Math.max(...citiesArr.map(o => o.latitude), null);
+        let obj = citiesArr.find(o => {return o.latitude == res;});
+        return obj;
+    }
 
-    // mostNorthern() {
-    //     const obj = this.cities;
-    //      try 'for of' or 'for in'
+    mostSouthern() {
+        let citiesArr = Object.values(this.cities);
+        let res = Math.min(...citiesArr.map(o => o.latitude), null);
+        let obj = citiesArr.find(o => {return o.latitude == res;});
+        return obj;
+    }
 
-    //     Object.keys(obj).forEach(function(key) {
-
-    //         // console.log(obj[key])
-    //         let biggest = 0;
-    //         let next = obj[key];
-
-    //         if (next > biggest) {
-    //             next = biggest
-    //             console.log(biggest);
-    //         }
-
-    //         return biggest;
-
-    //     });
-    // }
-
-    // mostSouthern() {
-    //     return this.cities.reduce((min, p) => p.latitude < min ? p.latitude : min, this.cities[0].latitude);
-    // }
+    totalPopulation() {
+        let citiesArr = Object.values(this.cities);
+        const reducer = (accumulator, currentValue) => accumulator + currentValue;
+        let totalPop = (citiesArr.map(o => o.population)).reduce(reducer);
+        return totalPop;
+    }
 }

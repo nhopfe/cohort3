@@ -32,10 +32,6 @@ const community =  [
 
 test('test that the fetch works?', async () => {
 
-   
-
-    
-
     // Check that the server is running and clear any data
     let data = await serverFunctions.postData(url + 'clear');
 
@@ -97,8 +93,7 @@ test('get Data', async () => {
     data = await serverFunctions.getData()
 
     expect(data[0].name).toEqual("Calgary");
-
-})
+});
 
 test('get Data on start', async () => {
     const myDiv = document.createElement("div");
@@ -116,8 +111,26 @@ test('get Data on start', async () => {
     expect(testCommunity.counter).toEqual(2);
     expect(myDiv.childElementCount).toEqual(2);
     expect(myDiv.childNodes[1].getAttribute("key")).toEqual("key2");
+});
 
-})
+test('addServerCity', async () => {
+    await serverFunctions.postData(url + 'clear');
+    let data = await serverFunctions.addServerCity(community[0]);
+    expect(data.status).toEqual(200);
+
+    data = await serverFunctions.postData(url + 'all');
+    expect(data.status).toEqual(200);
+    expect(data.length).toBe(1);
+    expect(data[0].name).toBe("Calgary");
+
+    // add a second with the same key which should be an error
+    data = await serverFunctions.postData(url + 'add', community[0]);
+    expect(data.status).toEqual(400);
+
+    // add a second which should be ok
+    data = await serverFunctions.postData(url + 'add', community[1]);
+    expect(data.status).toEqual(200);
+});
 
 test('readServer', async () => {
     await serverFunctions.postData(url + 'clear');
@@ -126,17 +139,17 @@ test('readServer', async () => {
     expect(data.status).toEqual(200);
     expect(data.length).toBe(1);
     expect(data[0].name).toBe("Calgary");
-})
+});
 
-test('deleteServer', async () => {
+test('deleteServerCity', async () => {
     await serverFunctions.postData(url + 'clear');
     await serverFunctions.postData(url + 'add', community[0]);
     await serverFunctions.postData(url + 'add', community[1]);
-    let data = await serverFunctions.deleteServer({key:1});
+    let data = await serverFunctions.deleteServerCity({key:1});
     expect(data.status).toEqual(200);
     data = await serverFunctions.readServer({key:1});
     expect(data.status).toEqual(400);
-})
+});
 
 test('updateServer', async () => {
     await serverFunctions.postData(url + 'clear');
@@ -146,4 +159,4 @@ test('updateServer', async () => {
     data = await serverFunctions.readServer({key:1});
     expect(data[0].name).toBe("Cowtown");
     expect(data[0].population).toEqual(1500000);
-})
+});

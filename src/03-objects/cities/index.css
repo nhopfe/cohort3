@@ -39,8 +39,8 @@ body {
 .container-right {
     margin: 2%;
     padding: 2%;
-    border: solid 3px #396b8c;
-    background-color: #78cf50;
+    border: solid 3px #78cf50;
+    background-color: #b0cc97;
     opacity: 90%;
 
 }
@@ -52,7 +52,7 @@ body {
 .create-city-display,
 .city-display,
 .balances-display {
-    border: solid 3px #396b8c;
+    border: solid 3px #78cf50;
     margin: 5%;
     padding: 2%;
 }
@@ -91,6 +91,7 @@ body {
     overflow-y: scroll;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: auto;
+    align-items: end;
 }
 
 .city-card {
@@ -99,8 +100,10 @@ body {
     grid-template-rows: 1fr 1fr 1fr 1fr;
     height: fit-content;
     width: 1fr;
-    padding: 10px;
+    padding: 10px 10px 10px 0px;
     align-items: center;
+    margin: 2px;
+    align-self: stretch;
 }
 
 .city-name {
@@ -124,7 +127,8 @@ body {
     
 }
 
-.city-card:nth-child(odd) {background-color:  #396b8c;}
+.city-card:nth-child(odd) {background-color:  grey;}
+.city-card:nth-child(even) {background-color:  #78cf50;}
 
 .city-input {
     margin: 0px 5px 0px 15px;

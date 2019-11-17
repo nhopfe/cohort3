@@ -103,12 +103,54 @@ test('test deleteCity object', () => {
     expect(cityList9.key1).toEqual(undefined);
 })
 
-// test('test mostNorthern', () => {
-//     let myDiv = document.createElement("div");
-//     const cityList = new Community("pittsburge")
-//     cityList.createCity(myDiv, "one", -50, 10, 500)
-//     cityList.createCity(myDiv, "two", 0, 10, 500)
-//     cityList.createCity(myDiv, "three", 50, 10, 500)
+test('test mostNorthern', () => {
+    let myDiv = document.createElement("div");
+    const cityList = new Community("pittsburge");
 
-//     expect(cityList.mostNorthern()).toBe("three");
-// })
+    expect(cityList.mostNorthern()).toEqual(undefined);
+
+    cityList.createCity(myDiv, "one", -60, 10, 500)
+    cityList.createCity(myDiv, "two", 0, 10, 500)
+    cityList.createCity(myDiv, "three", 50, 10, 500)
+    let mostNorthernCity = cityList.mostNorthern();
+
+    expect(mostNorthernCity.name).toBe("three");
+
+    cityList.createCity(myDiv, "four", 51, 10, 500)
+    mostNorthernCity = cityList.mostNorthern();
+
+    expect(mostNorthernCity.name).toBe("four");
+})
+
+
+test('test mostSouthern', () => {
+    let myDiv = document.createElement("div");
+    const cityList = new Community("pittsburge");
+
+    cityList.createCity(myDiv, "one", -60, 10, 500)
+    cityList.createCity(myDiv, "two", 0, 10, 500)
+    cityList.createCity(myDiv, "three", 50, 10, 500)
+    let mostSouthernCity = cityList.mostSouthern();
+
+    expect(mostSouthernCity.name).toBe("one");
+
+    cityList.createCity(myDiv, "four", -61, 10, 500)
+    mostSouthernCity = cityList.mostSouthern();
+
+    expect(mostSouthernCity.name).toBe("four");
+})
+
+test('test totalPopulation', () => {
+    let myDiv = document.createElement("div");
+    const cityList = new Community("pittsburge");
+
+    cityList.createCity(myDiv, "one", -60, 10, 500)
+    cityList.createCity(myDiv, "two", 0, 10, 500)
+    cityList.createCity(myDiv, "three", 50, 10, 500)
+
+    expect(cityList.totalPopulation()).toEqual(1500);
+
+    cityList.createCity(myDiv, "four", -61, 10, 500)
+
+    expect(cityList.totalPopulation()).toEqual(2000);
+})

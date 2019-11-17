@@ -31,7 +31,7 @@ export const serverFunctions = {
   },
 
   getData: async () => {
-    const response = await fetch('http://localhost:5000/all');
+    const response = await fetch(url + 'all');
     const myJson = await response.json();
     return myJson;
   },
@@ -55,21 +55,25 @@ export const serverFunctions = {
       community.cities[`key${key}`] = a;
     })
     community.counter = biggest;
-    console.log(community.cities);
   },
 
-  readServer: async (key) => {
-    const response = await serverFunctions.postData('http://localhost:5000/read', key);
+  addServerCity: async (cityObj) => {
+    const response = await serverFunctions.postData(url + 'add', cityObj)
     return response;
   },
 
-  deleteServer: async (key) => {
-    const response = await serverFunctions.postData('http://localhost:5000/delete', key);
+  readServer: async (key) => {
+    const response = await serverFunctions.postData(url + 'read', key);
+    return response;
+  },
+
+  deleteServerCity: async (key) => {
+    const response = await serverFunctions.postData(url + 'delete', key);
     return response;
   },
 
   updateServer: async (obj) => {
-    const response = await serverFunctions.postData('http://localhost:5000/update', obj);
+    const response = await serverFunctions.postData(url + 'update', obj);
     return response;
   }
 
