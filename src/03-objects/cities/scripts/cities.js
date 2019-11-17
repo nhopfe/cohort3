@@ -48,7 +48,7 @@ const functions = {
 
         const newWhichSphereButton = document.createElement("button");
         newWhichSphereButton.textContent = "Show Hemisphere"
-        newWhichSphereButton.setAttribute("class", "hemisphere-show");
+        newWhichSphereButton.setAttribute("class", "hemisphere-show city-button");
         newWhichSphereButton.id = `id-${key}-which-sphere-button`;
         newCityCard.appendChild(newWhichSphereButton);
 

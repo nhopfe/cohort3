@@ -5,7 +5,7 @@ import { serverFunctions } from './api.js'
 const community = new Community("The Greater Area");
 const parent = document.getElementById("idCityDisplay");
 
-export const cityChecker = () => {
+const cityChecker = () => {
     let northCityObj = community.mostNorthern();
     let southCityObj = community.mostSouthern();
     document.getElementById("idNorthCity").textContent = northCityObj.name; 
@@ -21,7 +21,6 @@ const createCity = () => {
     let newLong = Number(document.getElementById("idCityLongInput").value);
     let newPop = Number(document.getElementById("idCityPopInput").value);
     let currentCitiesArray = Object.values(community.cities);
-    // console.log(typeof(newLat));
     if ((newLat < -90) || (newLat > 90)) {
         return alert("Latitude must be a number between -90 and 90");
     } else if (newName == "") {
@@ -38,7 +37,6 @@ const createCity = () => {
 
 const cardButtons = () => {
     const targetCard = event.target.parentNode
-    // console.log(event.target.textContent);
     if (event.target.textContent == "Show") {
         const cardKey = targetCard.getAttribute('key')
         targetCard.children[1].textContent = community.cities[cardKey].show();
@@ -47,11 +45,15 @@ const cardButtons = () => {
         const cardKey = targetCard.getAttribute('key')
         const input = Number(targetCard.children[2].value)
         community.cities[cardKey].movedIn(input);
+        serverFunctions.updateServer(community.cities[cardKey]);
+        cityChecker();
     }
     if (event.target.textContent == "Move Out") {
         const cardKey = targetCard.getAttribute('key')
         const input = Number(targetCard.children[2].value)
         community.cities[cardKey].movedOut(input);
+        serverFunctions.updateServer(community.cities[cardKey]);
+        cityChecker();
     }
     if (event.target.textContent == "How Big") {
         const cardKey = targetCard.getAttribute('key')
@@ -67,9 +69,11 @@ const cardButtons = () => {
         let deleteServerObj= community.findKey(cardKey);
         serverFunctions.deleteServerCity(deleteServerObj);
         community.deleteCity(cardKey);
+        cityChecker();
     }
 }
 
 
 document.getElementById("idCityDisplay").addEventListener('click', cardButtons);
 document.getElementById("idCreateCityButton").addEventListener('click', createCity);
+document.getElementById("refreshDisplayButton").addEventListener('click', cityChecker);

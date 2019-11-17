@@ -159,4 +159,6 @@ test('updateServer', async () => {
     data = await serverFunctions.readServer({key:1});
     expect(data[0].name).toBe("Cowtown");
     expect(data[0].population).toEqual(1500000);
+
+    await serverFunctions.postData(url + 'clear');
 });
