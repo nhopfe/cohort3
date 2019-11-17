@@ -68,27 +68,26 @@ export class Community {
 
     deleteCity(key) {
         delete this.cities[key];
-        // console.log(this);
     }
     
     mostNorthern() {
-        let citiesArr = Object.values(this.cities);
-        let res = Math.max(...citiesArr.map(o => o.latitude), null);
-        let obj = citiesArr.find(o => {return o.latitude == res;});
+        const citiesArr = Object.values(this.cities);
+        const res = Math.max(...citiesArr.map(o => o.latitude), -91);
+        const obj = citiesArr.find(o => {return o.latitude == res;});
         return obj;
     }
 
     mostSouthern() {
-        let citiesArr = Object.values(this.cities);
-        let res = Math.min(...citiesArr.map(o => o.latitude), null);
-        let obj = citiesArr.find(o => {return o.latitude == res;});
+        const citiesArr = Object.values(this.cities);
+        const res = Math.min(...citiesArr.map(o => o.latitude), 91);
+        const obj = citiesArr.find(o => {return o.latitude == res;});
         return obj;
     }
 
     totalPopulation() {
-        let citiesArr = Object.values(this.cities);
+        const citiesArr = Object.values(this.cities);
         const reducer = (accumulator, currentValue) => accumulator + currentValue;
-        let totalPop = (citiesArr.map(o => o.population)).reduce(reducer);
+        const totalPop = (citiesArr.map(o => o.population)).reduce(reducer);
         return totalPop;
     }
 }

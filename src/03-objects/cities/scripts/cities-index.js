@@ -4,9 +4,14 @@ import { serverFunctions } from './api.js'
 
 const community = new Community("The Greater Area");
 const parent = document.getElementById("idCityDisplay");
-const mostNorth = document.getElementById('idMostNorthern').textContent;
-const mostSouth = document.getElementById('idMostSouthern').textContent;
-const totalPop = document.getElementById('idTotalPopDisplay').textContent;
+
+export const cityChecker = () => {
+    let northCityObj = community.mostNorthern();
+    let southCityObj = community.mostSouthern();
+    document.getElementById("idNorthCity").textContent = northCityObj.name; 
+    document.getElementById("idSouthCity").textContent = southCityObj.name;
+    document.getElementById("idTotalPopDisplay").textContent = community.totalPopulation();
+}
 
 serverFunctions.getDataOnStart(community, parent);
 
@@ -19,20 +24,16 @@ const createCity = () => {
     // console.log(typeof(newLat));
     if ((newLat < -90) || (newLat > 90)) {
         return alert("Latitude must be a number between -90 and 90");
+    } else if (newName == "") {
+        return alert("Please Provide City Name");
     } else if ((newLong < -180) || (newLong > 180)) {
         return alert("Longitude must be a number between -180 and 180");
     } else if (currentCitiesArray.filter(el => el.latitude === newLat && el.longitude === newLong).length !== 0) {
         return alert("A City Already Exists with that Latitude and Longitude");
     } else {
-        community.createCity(parent, newName, newLat, newLong, newPop);
-        mostNorth = community.mostNorthern();
-
-        // console.log(JSON.stringify(community));
-        // mostNorthernCity = community.mostNorthern();
-        // mostSouthernCity = community.mostSouthern();
-        // totalPop = community.totalPopulation();
+        community.createCity(parent, newName, newLat, newLong, newPop);        
     }
-
+    cityChecker();
 };
 
 const cardButtons = () => {
