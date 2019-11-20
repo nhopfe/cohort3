@@ -1,12 +1,40 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import MyComponent from './components/MyComponent';
+import Even from './components/EvenComponent';
+import Odd from './components/OddComponent';
 
-function App() {
-  return (
+class App extends React.Component {
+  constructor() {
+    super();
+    this.counter = 21;
+    this.state = {
+      myState: "TBD"
+    };
+  }
+
+  onPushMe = () => {
+    console.log("You pushed me");
+    this.counter++;
+    console.log(this.counter);
+    this.setState({
+      myState: "now:" + this.counter
+    });
+  }
+
+  render() {
+   return (
     <div className="App">
       <header className="App-header">
+        <button onClick={this.onPushMe}>
+          Push Me
+        </button>
         <img src={logo} className="App-logo" alt="logo" />
+        <MyComponent whatToSay="What Ever" pushMe={this.onPushMe}/>
+        <Even count={this.counter}/>
+        <Odd count={this.counter}/>
+        <h1>I am in control of this application and my name is Nathan {this.counter} {this.state.myState}</h1>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -20,7 +48,8 @@ function App() {
         </a>
       </header>
     </div>
-  );
+    );
+  }
 }
 
 export default App;
