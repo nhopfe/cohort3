@@ -21,7 +21,8 @@
 }
 
 .Icon {
-  height: auto;
+  height: 150px;
+  padding: 5px;
 }
 
 .Icon:hover {
