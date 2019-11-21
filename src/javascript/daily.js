@@ -50,6 +50,19 @@ export const people = [
 	{fname:"Tylor", lname:"Torres", province:"MN", age:98}
 ];
 
+// Callback Exervise (Part2) Daily for 2109-11-21
+
+export const provAgeLoop = (array) => {
+        const west = array.filter(elem => 
+                {return elem.province == "AB" || elem.province == "BC"});
+        const agesArr = west.map(elem =>
+                {return elem.age});
+        const totalPeople = agesArr.length;
+        const totalAge = agesArr.reduce((accumulator, currentValue) => accumulator + currentValue);
+        const averageAge = Math.round(totalAge / totalPeople);
+
+        return {totalNumberOfPeople: totalPeople, totalAgesOfPeople: totalAge, averageAgeOfPeople: averageAge};
+}
 
 // Callback Exercise (Part1) Daily for 2019-11-08
 

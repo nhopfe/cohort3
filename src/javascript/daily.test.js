@@ -12,7 +12,16 @@
     p2--> 2
 */
 
-import { assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances, balancesGreaterThan1000, people, provLoop } from './daily'
+import { provAgeLoop, assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances, balancesGreaterThan1000, people, provLoop } from './daily'
+
+// Callback Exercise (Part2) Daily for 2019-11-21
+
+test('create age object with provAgeLoop', () => {
+    const prov = provAgeLoop(people);
+    expect(prov.totalNumberOfPeople).toEqual(22);
+    expect(prov.totalAgesOfPeople).toEqual(838);
+    expect(prov.averageAgeOfPeople).toEqual(38);
+})
 
 // Callback Exercise (Part1) Daily for 2019-11-08
 
