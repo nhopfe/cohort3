@@ -12,7 +12,27 @@
     p2--> 2
 */
 
-import { provAgeLoop, assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances, balancesGreaterThan1000, people, provLoop } from './daily'
+import { originFunc, fruitFunc, anon, provAgeLoop, assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances, balancesGreaterThan1000, people, provLoop } from './daily'
+
+// Three ways of functions Daily for 2019-11-22
+
+test('sort by number ascending via anonymous function', () => {
+    const nums = anon();
+    expect(nums[0].str).toBe("cantaloupe");
+    expect(nums[1].str).toBe("lemons");
+})
+
+test('sort by fruit alphabetic via named function', () => {
+    const fruit = fruitFunc();
+    expect(fruit[0].str).toBe("apples");
+    expect(fruit[1].str).toBe("avocados");
+})
+
+test('sort by origin reverse alphabetic via arrow function', () => {
+    const origin = originFunc();
+    expect(origin[0].str).toBe("pears");
+    expect(origin[8].str).toBe("apples");
+})
 
 // Callback Exercise (Part2) Daily for 2019-11-21
 

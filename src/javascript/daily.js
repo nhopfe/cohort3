@@ -1,3 +1,53 @@
+// Three ways of functions Daily for 2019-11-22
+
+let myArray = [
+	{num: 5, str: "apples", origin:"BC"},
+	{num: 7, str: "oranges", origin:"Florida"},
+	{num: 2, str: "lemons", origin:"Mexico"},
+	{num: 8, str: "bananas", origin:"Ecuador"},
+	{num: 6, str: "avocados", origin:"Mexico"},
+	{num: 4, str: "pineapple", origin:"Brazil"},
+	{num: 3, str: "blueberries", origin:"Chile"},
+	{num: 9, str: "pears", origin:"Oregon"},
+	{num: 1, str: "cantaloupe", origin:"California"}
+];
+//
+// Do the statements below 3 times, one for each type of function
+//
+
+export const anon = function () {
+        const numArr = myArray.sort((a,b) => {
+                return a.num - b.num;
+        });
+                console.log("myArray = ", myArray);
+        return numArr;
+}
+
+export function fruitFunc() {
+        const fruitArr = myArray.sort((a,b) => {
+                if(a.str > b.str) {
+                        return 1;
+                } else {
+                        return -1;
+                }
+        });
+                console.log("myArray = ", myArray);
+        return fruitArr;
+}
+
+export const originFunc = () => {
+        const originArr = myArray.sort((a,b) => {
+                if(a.origin < b.origin) {
+                        return 1;
+                } else {
+                        return -1;
+                }
+        });
+                console.log("myArray = ", myArray);
+        return originArr;
+}
+
+
 /*
     Sample data for the next few exercises.
 */
