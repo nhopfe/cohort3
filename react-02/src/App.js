@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Homepage from './components/MyHomepage.js'
-import TicTacToe from './components/MyTicTacToe.js'
+import TicTacToeGame from './components/MyTicTacToe.js'
 
 import gears1 from './images/settings-gears.svg'
 import gears2 from './images/two-big-gears.svg'
@@ -33,7 +33,7 @@ class App extends React.Component {
     if (this.state.selected === home) {
       return < Homepage />;
     } if (this.state.selected === ticTacToe) {
-      return < TicTacToe />;
+      return < TicTacToeGame />;
     } if (this.state.selected === gears1 || this.state.selected === gears2) {
       return < Homepage />;
     }
