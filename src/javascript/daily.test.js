@@ -12,7 +12,17 @@
     p2--> 2
 */
 
-import { originFunc, fruitFunc, anon, provAgeLoop, assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances, balancesGreaterThan1000, people, provLoop } from './daily'
+import { calculateWinner, originFunc, fruitFunc, anon, provAgeLoop, assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances, balancesGreaterThan1000, people, provLoop } from './daily'
+
+// Destructuring-assignment Daily for 2019-11-26
+
+test('testing calculateWinner function', () => {
+    const board = ['X', 'X', 'X', 'O', 'O',,,,];
+    expect(calculateWinner(board)).toBe('X');
+    const board2 = ['X', 'X', null, 'O', 'O', 'O', null, null, null];
+    expect(calculateWinner(board2)).toBe('O');
+});
+
 
 // Three ways of functions Daily for 2019-11-22
 
