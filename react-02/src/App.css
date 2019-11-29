@@ -23,12 +23,14 @@
 .Icon {
   height: 10vh;
   margin: 0vw 3vw;
+  animation: spin 30s linear infinite;
 }
 
 .Icon:hover {
   filter: grayscale(50%) sepia(50%);
   cursor: pointer;
-  outline: 0; 
+  outline: 0;
+  animation: reverseSpin 20s linear infinite; 
 }
 
 .Icon:focus {
@@ -36,14 +38,13 @@
   outline: 0;
 }
 
-.Img2,
-.Img4 {
-  animation: spin 10s linear infinite;
+/* .Img4 {
+  animation: spin 30s linear infinite;
 }
 
 .Img3 {
   animation: reverseSpin 10s linear infinite;
-}
+} */
 
 .Row {
   display: flex;
