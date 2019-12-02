@@ -30,13 +30,13 @@ test('test Account balance', () => {
 
 test('test Account Controller add new account', () => {
     const testAccountController = new AccountController("Sarah");
-    expect(testAccountController).toEqual({ "listArray": [], "listName": "Sarah" });
-    testAccountController.addAccount("checking", 50, 1);
-    expect(testAccountController.listArray).toEqual([{ "accountName": "checking", "startingBalance": 50, "accountID": 1 }]);
-    testAccountController.addAccount("checking", 50, 2);
+    expect(testAccountController).toEqual({ "listArray": [], "listName": "Sarah", "counter": 0 });
+    testAccountController.addAccount("checking", 50);
+    expect(testAccountController.listArray).toEqual([{ "accountName": "checking", "startingBalance": 50, "key": 1 }]);
+    testAccountController.addAccount("checking", 50);
     expect(testAccountController.listArray).toEqual(
-        [{ "accountName": "checking", "startingBalance": 50, "accountID": 1 },
-        { "accountName": "checking", "startingBalance": 50, "accountID": 2 }]);
+        [{ "accountName": "checking", "startingBalance": 50, "key": 1 },
+        { "accountName": "checking", "startingBalance": 50, "key": 2 }]);
 });
 
 test('test totalBalances of accounts', () => {
@@ -93,9 +93,9 @@ test('test deleteAccount', () => {
     expect(testAccountController.deleteAccount(2))
         .toEqual(
             [
-                { "accountName": "checking", "startingBalance": 51, "accountID": 1 },
-                { "accountName": "new car", "startingBalance": 53, "accountID": 3 },
-                { "accountName": "luxories", "startingBalance": 54, "accountID": 4 }
+                { "accountName": "checking", "startingBalance": 51, "key": 1 },
+                { "accountName": "new car", "startingBalance": 53, "key": 3 },
+                { "accountName": "luxories", "startingBalance": 54, "key": 4 }
             ]
         );
 });

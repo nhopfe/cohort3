@@ -2,10 +2,10 @@ import functions from './account-functions.js';
 
 export class Account {
 
-    constructor(accountName, startingBalance, accountID) {
+    constructor(accountName, startingBalance, key) {
         this.accountName = accountName;
         this.startingBalance = Number(startingBalance);
-        this.accountID = accountID;
+        this.key = Number(key);
     }
 
     accountDeposit(amount) {
@@ -29,11 +29,14 @@ export class AccountController {
     constructor(listName) {
         this.listName = listName;
         this.listArray = [];
+        this.counter = 0;
     }
 
-    addAccount(accountName, startingBalance, counter) {
-        let account = new Account(accountName, startingBalance, counter);
-        return this.listArray.push(account);
+    addAccount(accountName, startingBalance) {
+        this.counter++;
+        let account = new Account(accountName, startingBalance, this.counter);
+        this.listArray.push(account);
+        return account;
     }
 
     totalBalances() {
@@ -82,7 +85,7 @@ export class AccountController {
 
     deleteAccount(search) {
         let array = this.listArray;
-        let IDArray = array.map(a => a.accountID);
+        let IDArray = array.map(a => a.key);
         let searchedID = (ID) => {
             return ID == search;
         }
@@ -93,7 +96,7 @@ export class AccountController {
 
     findAccount(search) {
         let array = this.listArray;
-        let IDArray = array.map(a => a.accountID);
+        let IDArray = array.map(a => a.key);
         let searchedID = (ID) => {
             return ID == search;
         }

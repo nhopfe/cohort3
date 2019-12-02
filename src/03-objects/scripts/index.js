@@ -3,21 +3,19 @@ import functions from './account-functions.js';
 
 export const accountList = new AccountController("Account List");
 
-let counter = 0;
-
 const accountCreateButton = () => {
     let array = accountList.listArray;
     let accountNames = array.map(array => array.accountName);
-    if (String(idAccountNameInput.value) == accountNames) {
+    let matchingName = accountNames.filter(account => account == idAccountNameInput.value)
+    if (String(idAccountNameInput.value) == matchingName) {
         idAccountNameInput.value = "";
         idAccountBalanceInput.value = "";
         return alert("Duplicate Account Name! Please choose another name.");
     } else {
-        counter++;
-        functions.createAccountDiv(idAccountDisplay, String(idAccountNameInput.value), idAccountBalanceInput.value, counter);
-        accountList.addAccount(String(idAccountNameInput.value), idAccountBalanceInput.value, counter);
+        const newAccount = accountList.addAccount(String(idAccountNameInput.value), idAccountBalanceInput.value);
+        console.log(newAccount);
+        functions.createAccountDiv(idAccountDisplay, newAccount);
         balanceChecker();
-        console.log(accountList);
         idAccountNameInput.value = "";
         idAccountBalanceInput.value = "";
     }
@@ -26,7 +24,6 @@ const accountCreateButton = () => {
 const accountButtonSelector = (event) => {
     if (event.target.textContent == "Deposit") {
         let accountID = event.target.parentNode.getAttribute("counter");
-        console.log(accountID);
         let index = accountList.findAccount(accountID);
         let input = Number(event.target.parentNode.children[2].value);
         accountList.listArray[index].accountDeposit(input);
