@@ -22,6 +22,7 @@
 
 .Icon {
   height: 10vh;
+  min-height: 40px;
   margin: 0vw 3vw;
   animation: spin 30s linear infinite;
 }
