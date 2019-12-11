@@ -1,5 +1,4 @@
 import React from 'react';
-import { Community } from './classes.js'
 import { serverFunctions } from './api.js';
 
 class CityCard extends React.Component {
