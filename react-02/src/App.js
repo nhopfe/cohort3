@@ -7,6 +7,7 @@ import Cities from "./components/cities/MyCities.js";
 
 import gears1 from './images/settings-gears.svg'
 import gears2 from './images/two-big-gears.svg'
+import listIcon from './images/list-svgrepo-com.svg'
 import ticTacToe from './images/tic-tac-toe.svg'
 import home from './images/house.svg'
 import coins from './images/coins.svg'
@@ -28,7 +29,7 @@ class App extends React.Component {
   }
 
   navIconMapper = () => {
-    const images = [home, ticTacToe, coins, city, gears1];
+    const images = [home, ticTacToe, coins, city, listIcon];
     return images.map((image, i) => 
     <img key={i} name={image} src={image} tabIndex={0} className={`Icon Img${i}`} alt={`Icon ${image}`} onClick={this.selectedElement} />);
   }
@@ -42,6 +43,8 @@ class App extends React.Component {
       return < Accounts />;
     } if (this.state.selected === city) {
       return < Cities />;
+    } if (this.state.selected === listIcon) {
+      return < Homepage />;
     } if (this.state.selected === gears1 || this.state.selected === gears2) {
       return < Homepage />;
     }
