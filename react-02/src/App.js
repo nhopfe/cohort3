@@ -4,6 +4,7 @@ import Homepage from './components/MyHomepage.js';
 import TicTacToeGame from './components/MyTicTacToe.js';
 import Accounts from "./components/accounts/MyAccounts.js";
 import Cities from "./components/cities/MyCities.js";
+import LinkedListApp from "./components/linkedlist/MyLinkedList.js"
 
 import gears1 from './images/settings-gears.svg'
 import gears2 from './images/two-big-gears.svg'
@@ -44,7 +45,7 @@ class App extends React.Component {
     } if (this.state.selected === city) {
       return < Cities />;
     } if (this.state.selected === listIcon) {
-      return < Homepage />;
+      return < LinkedListApp />;
     } if (this.state.selected === gears1 || this.state.selected === gears2) {
       return < Homepage />;
     }
