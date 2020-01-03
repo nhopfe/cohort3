@@ -8,7 +8,7 @@ export class ListNode {
     }
 
     show() { 
-        return `Current Item: ${this.subject}, Current Amount: ${this.amount}.`
+        return `Current Item: ${this.subject}, Current Item's Amount: ${this.amount}.`
     }
 };
 

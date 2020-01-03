@@ -2,7 +2,7 @@ import { ListNode, LinkedList } from './linkedlist';
 
 test('test ListNode show', () => {
     const testListNode = new ListNode("Test Node", 1);
-    expect(testListNode.show()).toBe("Current Item: Test Node, Current Amount: 1.");
+    expect(testListNode.show()).toBe("Current Item: Test Node, Current Item's Amount: 1.");
 });
 
 test('test LinkedList insert', () => {
