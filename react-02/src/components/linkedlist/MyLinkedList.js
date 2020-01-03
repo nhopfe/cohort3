@@ -64,25 +64,12 @@ const LinkedListApp = () => {
             <div className="create-node-display">
                 <form onSubmit={(event) => handleInsert(event)}>
                     <label className="create-node-text">Subject:</label>
-                    <input
-                        type="text"
-                        name="nodeSubject"
-                        placeholder="subject name"
-                        className="create-node-subject-input"
-                        value={subject}
-                        onChange={(event) => setSubject(event.target.value)} />
+                    <input type="text" name="nodeSubject" placeholder="subject name" className="create-node-subject-input"
+                        value={subject} onChange={(event) => setSubject(event.target.value)} />
                     <label className="create-node-text">Amount:</label>
-                    <input
-                        type="number"
-                        name="nodeAmount"
-                        placeholder="item amount"
-                        className="create-node-amount-input"
-                        value={amount}
-                        onChange={(event) => setAmount(event.target.value)} />
-                    <input
-                        type="submit"
-                        value="Create Item"
-                        className="list-button create-list-button" />
+                    <input type="number" name="nodeAmount" placeholder="item amount" className="create-node-amount-input"
+                        value={amount} onChange={(event) => setAmount(event.target.value)} />
+                    <input type="submit" value="Create Item" className="list-button create-list-button" />
                 </form>
             </div>
         </div>
