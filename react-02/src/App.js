@@ -13,6 +13,7 @@ import home from './images/house.svg'
 import coins from './images/coins.svg'
 import city from './images/modern-city.svg'
 import stack from './images/stack.svg'
+import gears from './images/settings-gears.svg'
 
 
 class App extends React.Component {
@@ -30,7 +31,7 @@ class App extends React.Component {
   }
 
   navIconMapper = () => {
-    const images = [home, ticTacToe, coins, city, listIcon, stack];
+    const images = [home, ticTacToe, coins, city, listIcon, stack, gears];
     return images.map((image, i) => 
     <img key={i} name={image} src={image} tabIndex={0} className={`Icon Img${i}`} alt={`Icon ${image}`} onClick={this.selectedElement} />);
   }
@@ -48,6 +49,8 @@ class App extends React.Component {
       return < LinkedListApp />;
     } if (this.state.selected === stack) {
       return < LifoFifoDisplay />;
+    } if (this.state.selected === gears) {
+      return < Homepage />;
     }
   }
 
