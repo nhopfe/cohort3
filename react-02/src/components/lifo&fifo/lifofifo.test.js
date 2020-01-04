@@ -41,6 +41,14 @@ describe('testing Fifo class', () => {
         testFifo.list.unshift("Item1");
         expect(testFifo.nextInLine()).toBe("Item1");
     });
+
+    test('test lastAdded', () => {
+        const testFifo = new Fifo();
+        testFifo.add("Item1");
+        expect(testFifo.lastAdded()).toBe("Item1");
+        testFifo.add("Item2");
+        expect(testFifo.lastAdded()).toBe("Item2");
+    });
 });
 
 describe('testing LifoFifoItemList class', () => {

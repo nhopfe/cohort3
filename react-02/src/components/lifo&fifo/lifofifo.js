@@ -38,6 +38,10 @@ export class Fifo extends LifoOrFifoParent {
     nextInLine() {
         return this.list[0];
     }
+
+    lastAdded() {
+        return this.list[this.list.length -1];
+    }
 };
 
 export class LifoFifoItemList {
