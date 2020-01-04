@@ -1,8 +1,5 @@
 import React from 'react';
-// import CityCreateDisplay from './MyCitiesCreateDisplay.js';
 import CityCardsList from './MyCitiesCardsList.js';
-// import CityStatsDisplay from './MyCitiesFactsDisplay.js';
-// import CityInfoDisplay from './MyCitiesInfoDisplay.js';
 import { Community } from './classes.js';
 import { serverFunctions } from './api.js';
 import './index.css';
