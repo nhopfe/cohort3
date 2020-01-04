@@ -5,14 +5,14 @@ import TicTacToeGame from './components/MyTicTacToe.js';
 import Accounts from "./components/accounts/MyAccounts.js";
 import Cities from "./components/cities/MyCities.js";
 import LinkedListApp from "./components/linkedlist/MyLinkedList.js"
+import LifoFifoDisplay from "./components/lifo&fifo/MyLifoFifo.js"
 
-import gears1 from './images/settings-gears.svg'
-import gears2 from './images/two-big-gears.svg'
 import listIcon from './images/list-svgrepo-com.svg'
 import ticTacToe from './images/tic-tac-toe.svg'
 import home from './images/house.svg'
 import coins from './images/coins.svg'
 import city from './images/modern-city.svg'
+import stack from './images/stack.svg'
 
 
 class App extends React.Component {
@@ -30,7 +30,7 @@ class App extends React.Component {
   }
 
   navIconMapper = () => {
-    const images = [home, ticTacToe, coins, city, listIcon];
+    const images = [home, ticTacToe, coins, city, listIcon, stack];
     return images.map((image, i) => 
     <img key={i} name={image} src={image} tabIndex={0} className={`Icon Img${i}`} alt={`Icon ${image}`} onClick={this.selectedElement} />);
   }
@@ -46,8 +46,8 @@ class App extends React.Component {
       return < Cities />;
     } if (this.state.selected === listIcon) {
       return < LinkedListApp />;
-    } if (this.state.selected === gears1 || this.state.selected === gears2) {
-      return < Homepage />;
+    } if (this.state.selected === stack) {
+      return < LifoFifoDisplay />;
     }
   }
 
