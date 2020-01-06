@@ -41,19 +41,10 @@ class App extends React.Component {
   }
 
   handleSettingsChange = (event) => {
-    if (event.target.value === "gradient") {
-      this.setState({
-        theme: themes.gradient,
-        themeValue: event.target.value,
-      })
-    }
-    if (event.target.value === "solid") {
-      this.setState({
-        theme: themes.solid,
-        themeValue: event.target.value,
-      })
-    }
-    return;
+    this.setState({
+      theme: themes[event.target.value],
+      themeValue: event.target.value,
+    })
   }
 
   pageDisplayed = () => {
