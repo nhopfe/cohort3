@@ -21,10 +21,10 @@ import gears from './images/settings-gears.svg'
 class App extends React.Component {
   constructor() {
     super();
-    this.handleSettingsChange = this.handleSettingsChange.bind(this);
     this.state = {
       selected: home,
       theme: themes.gradient,
+      themeValue: "gradient",
     }
   }
 
@@ -44,11 +44,13 @@ class App extends React.Component {
     if (event.target.value === "gradient") {
       this.setState({
         theme: themes.gradient,
+        themeValue: event.target.value,
       })
     }
     if (event.target.value === "solid") {
       this.setState({
         theme: themes.solid,
+        themeValue: event.target.value,
       })
     }
     return;
@@ -68,7 +70,9 @@ class App extends React.Component {
     } if (this.state.selected === stack) {
       return < LifoFifoDisplay />;
     } if (this.state.selected === gears) {
-      return < Settings handleSettingsChange={this.handleSettingsChange}/>;
+      return < Settings 
+        handleSettingsChange={this.handleSettingsChange}
+        themeValue={this.state.themeValue}/>;
     }
   }
 

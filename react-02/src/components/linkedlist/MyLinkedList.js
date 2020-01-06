@@ -11,7 +11,7 @@ const LinkedListApp = () => {
     const [amount, setAmount] = useState("");
     let [current, setCurrent] = useState("");
 
-    // const theme = React.useContext(ThemeContext);
+    const theme = React.useContext(ThemeContext);
 
     const handleInsert = (event) => {
         if (subject === "" || amount === "") {
@@ -56,53 +56,53 @@ const LinkedListApp = () => {
     )
 
     return (
-        <div className="list-wrapper">
-        <div className="create-node-display-wrapper">
-            <div className="create-node-display-header">
-                Add Item to Linked List
+        <div className="list-wrapper" style={{ background: theme.background }}>
+            <div className="create-node-display-wrapper">
+                <div className="create-node-display-header">
+                    Add Item to Linked List
             </div>
-            <div className="create-node-display">
-                <form onSubmit={(event) => handleInsert(event)}>
-                    <label className="create-node-text">Subject:</label>
-                    <input type="text" name="nodeSubject" placeholder="subject name" className="create-node-subject-input"
-                        value={subject} onChange={(event) => setSubject(event.target.value)} />
-                    <label className="create-node-text">Amount:</label>
-                    <input type="number" name="nodeAmount" placeholder="item amount" className="create-node-amount-input"
-                        value={amount} onChange={(event) => setAmount(event.target.value)} />
-                    <input type="submit" value="Create Item" className="list-button create-list-button" />
-                </form>
+                <div className="create-node-display">
+                    <form onSubmit={(event) => handleInsert(event)}>
+                        <label className="create-node-text">Subject:</label>
+                        <input type="text" name="nodeSubject" placeholder="subject name" className="create-node-subject-input"
+                            value={subject} onChange={(event) => setSubject(event.target.value)} />
+                        <label className="create-node-text">Amount:</label>
+                        <input type="number" name="nodeAmount" placeholder="item amount" className="create-node-amount-input"
+                            value={amount} onChange={(event) => setAmount(event.target.value)} />
+                        <input type="submit" value="Create Item" className="list-button create-list-button" />
+                    </form>
+                </div>
+            </div>
+            <div className="list-info">
+                <div className="list-current-show">
+                    {(linkedList.current) ? linkedList.current.show() : null}
+                </div>
+                <div className="list-total-amounts">
+                    Total of All Amounts: {linkedList.total()}
+                </div>
+            </div>
+            <div className="list-navbar">
+                <input type="submit" value="First Item" className="list-button"
+                    onClick={() => setCurrent(current = linkedList.first())}
+                />
+                <input type="submit" value="Previous Item" className="list-button"
+                    onClick={() => setCurrent(current = linkedList.previous(linkedList.current))}
+                />
+                <input type="submit" value="Delete Current Item" className="list-button delete-button"
+                    onClick={() => setCurrent(current = linkedList.delete(linkedList.current))}
+                />
+                <input type="submit" value="Next Item" className="list-button"
+                    onClick={() => setCurrent(current = linkedList.next(linkedList.current))}
+                />
+                <input type="submit" value="Last Item" className="list-button"
+                    onClick={() => setCurrent(current = linkedList.last())}
+                />
+            </div>
+            <div className="list-display">
+                {displayNodes(linkedList)}
             </div>
         </div>
-        <div className="list-info">
-            <div className="list-current-show">
-                {(linkedList.current) ? linkedList.current.show() : null}
-            </div>
-            <div className="list-total-amounts">
-                Total of All Amounts: {linkedList.total()}
-            </div>
-        </div>
-        <div className="list-navbar">
-            <input type="submit" value="First Item" className="list-button"
-                onClick={() => setCurrent(current = linkedList.first())}
-            />
-            <input type="submit" value="Previous Item" className="list-button"
-                onClick={() => setCurrent(current = linkedList.previous(linkedList.current))}
-            />
-            <input type="submit" value="Delete Current Item" className="list-button delete-button"
-                onClick={() => setCurrent(current = linkedList.delete(linkedList.current))}
-            />
-            <input type="submit" value="Next Item" className="list-button"
-                onClick={() => setCurrent(current = linkedList.next(linkedList.current))}
-            />
-            <input type="submit" value="Last Item" className="list-button"
-                onClick={() => setCurrent(current = linkedList.last())}
-            />
-        </div>
-        <div className="list-display">
-            {displayNodes(linkedList)}
-        </div>
-    </div>
-)
+    )
 }
 
 export default LinkedListApp;

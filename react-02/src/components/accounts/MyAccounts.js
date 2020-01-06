@@ -75,37 +75,40 @@ class Accounts extends React.Component {
     }
 
     render() {
-
         return (
-            <div className="wrapper">
-                <div className="container-left">
-                    <span className="container-left-header display-header">Create New Account</span>
-                    <AccountCreateDisplay
-                        handleSubmit={this.handleSubmit}
-                        handleOnChange={this.handleOnChange}
-                        acctName={this.state.acctName}
-                        acctBalance={this.state.acctBalance}
-                    />
-                </div>
-                <div className="container-middle">
-                    <span className="container-middle-header display-header">Accounts Display</span>
-                    <AccountCardsList
-                        listArray={this.accounts.listArray}
-                        handleDelete={this.handleDelete}
-                        balanceChecker={this.balanceChecker}
-                    />
-                </div>
-                <div className="container-right">
-                    <span className="container-right-header display-header">Accounts Information</span>
-                    <AccountBalancesDisplay
-                        highestName={this.state.highestName}
-                        highestBalance={this.state.highestBalance}
-                        lowestName={this.state.lowestName}
-                        lowestBalance={this.state.lowestBalance}
-                        totalBalance={this.state.totalBalance}
-                    />
-                </div>
-            </div>
+            <ThemeContext.Consumer>
+                {(theme) => (
+                    <div className="wrapper" style={{ background: theme.background }}>
+                        <div className="container-left">
+                            <span className="container-left-header display-header">Create New Account</span>
+                            <AccountCreateDisplay
+                                handleSubmit={this.handleSubmit}
+                                handleOnChange={this.handleOnChange}
+                                acctName={this.state.acctName}
+                                acctBalance={this.state.acctBalance}
+                            />
+                        </div>
+                        <div className="container-middle">
+                            <span className="container-middle-header display-header">Accounts Display</span>
+                            <AccountCardsList
+                                listArray={this.accounts.listArray}
+                                handleDelete={this.handleDelete}
+                                balanceChecker={this.balanceChecker}
+                            />
+                        </div>
+                        <div className="container-right">
+                            <span className="container-right-header display-header">Accounts Information</span>
+                            <AccountBalancesDisplay
+                                highestName={this.state.highestName}
+                                highestBalance={this.state.highestBalance}
+                                lowestName={this.state.lowestName}
+                                lowestBalance={this.state.lowestBalance}
+                                totalBalance={this.state.totalBalance}
+                            />
+                        </div>
+                    </div>
+                )}
+            </ThemeContext.Consumer>
         );
     }
 }

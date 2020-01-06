@@ -17,6 +17,8 @@ const LifoFifoDisplay = () => {
     let [fifoItemRemoved, setFifoItemRemoved] = useState("");
     let [lifoItemRemoved, setLifoItemRemoved] = useState("");
 
+    const theme = React.useContext(ThemeContext);
+
     const handleAddItem = () => {
         fifo.add(itemBeingAdded);
         lifo.add(itemBeingAdded);
@@ -39,7 +41,7 @@ const LifoFifoDisplay = () => {
 
 
     return (
-        <div className="lifofifo-wrapper">
+        <div className="lifofifo-wrapper" style={{ background: theme.background }}>
             <div className="container">
                 <div className="lifo-column">
                     <span className="lifo-header">LIFO</span><br></br><br></br>
