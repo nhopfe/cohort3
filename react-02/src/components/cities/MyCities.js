@@ -3,6 +3,7 @@ import CityCardsList from './MyCitiesCardsList.js';
 import { Community } from './classes.js';
 import { serverFunctions } from './api.js';
 import './index.css';
+// import { ThemeContext } from '../MyTheme.js';
 
 class Cities extends React.Component {
 

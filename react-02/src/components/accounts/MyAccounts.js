@@ -4,6 +4,7 @@ import AccountCardsList from './MyAccountsCardsList.js';
 import AccountBalancesDisplay from './MyAccountsInfoDisplay.js'
 import { AccountController } from './account.js';
 import './account-index.css';
+import { ThemeContext } from '../MyTheme.js';
 
 class Accounts extends React.Component {
     

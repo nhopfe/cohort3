@@ -4,8 +4,10 @@ import Homepage from './components/MyHomepage.js';
 import TicTacToeGame from './components/MyTicTacToe.js';
 import Accounts from "./components/accounts/MyAccounts.js";
 import Cities from "./components/cities/MyCities.js";
-import LinkedListApp from "./components/linkedlist/MyLinkedList.js"
-import LifoFifoDisplay from "./components/lifo&fifo/MyLifoFifo.js"
+import LinkedListApp from "./components/linkedlist/MyLinkedList.js";
+import LifoFifoDisplay from "./components/lifo&fifo/MyLifoFifo.js";
+import Settings from "./components/settings/MySettings.js";
+import { themes, ThemeContext } from "./components/MyTheme.js";
 
 import listIcon from './images/list-svgrepo-com.svg'
 import ticTacToe from './images/tic-tac-toe.svg'
@@ -19,8 +21,10 @@ import gears from './images/settings-gears.svg'
 class App extends React.Component {
   constructor() {
     super();
+    this.handleSettingsChange = this.handleSettingsChange.bind(this);
     this.state = {
-      selected: home
+      selected: home,
+      theme: themes.gradient,
     }
   }
 
@@ -34,6 +38,20 @@ class App extends React.Component {
     const images = [home, ticTacToe, coins, city, listIcon, stack, gears];
     return images.map((image, i) => 
     <img key={i} name={image} src={image} tabIndex={0} className={`Icon Img${i}`} alt={`Icon ${image}`} onClick={this.selectedElement} />);
+  }
+
+  handleSettingsChange = (event) => {
+    if (event.target.value === "gradient") {
+      this.setState({
+        theme: themes.gradient,
+      })
+    }
+    if (event.target.value === "solid") {
+      this.setState({
+        theme: themes.solid,
+      })
+    }
+    return;
   }
 
   pageDisplayed = () => {
@@ -50,7 +68,7 @@ class App extends React.Component {
     } if (this.state.selected === stack) {
       return < LifoFifoDisplay />;
     } if (this.state.selected === gears) {
-      return < Homepage />;
+      return < Settings handleSettingsChange={this.handleSettingsChange}/>;
     }
   }
 
@@ -65,7 +83,9 @@ class App extends React.Component {
           </div>
         </header>
         <div className="App-Display">
-          {this.pageDisplayed()}
+          <ThemeContext.Provider value={this.state.theme}>
+            {this.pageDisplayed()}
+          </ThemeContext.Provider>
         </div>
       </div>
     );

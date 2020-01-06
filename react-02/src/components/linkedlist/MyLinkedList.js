@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { LinkedListTheme } from './linkedlisttheme.js'
 import { LinkedList } from './linkedlist.js';
 import './linkedlist.css';
+import { ThemeContext } from '../MyTheme.js';
 
 
 const linkedList = new LinkedList();
@@ -11,7 +11,7 @@ const LinkedListApp = () => {
     const [amount, setAmount] = useState("");
     let [current, setCurrent] = useState("");
 
-    const theme = React.useContext(LinkedListTheme);
+    // const theme = React.useContext(ThemeContext);
 
     const handleInsert = (event) => {
         if (subject === "" || amount === "") {
@@ -56,7 +56,7 @@ const LinkedListApp = () => {
     )
 
     return (
-        <div className="list-wrapper" style={{ backgroundColor: theme.background, color: theme.color }}>
+        <div className="list-wrapper">
         <div className="create-node-display-wrapper">
             <div className="create-node-display-header">
                 Add Item to Linked List

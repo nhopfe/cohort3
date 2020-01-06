@@ -1,5 +1,6 @@
 import React from 'react';
 import Board from './MyBoard';
+import { ThemeContext } from './MyTheme.js';
 
 class TicTacToeGame extends React.Component {
     constructor(props) {

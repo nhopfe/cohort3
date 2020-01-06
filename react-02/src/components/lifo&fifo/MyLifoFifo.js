@@ -3,6 +3,7 @@ import { Lifo, Fifo, LifoFifoItemList } from './lifofifo.js';
 import MyLifo from './MyLifo.js';
 import MyFifo from './MyFifo.js';
 import './lifofifo.css';
+import { ThemeContext } from '../MyTheme.js';
 
 const itemList = new LifoFifoItemList();
 const lifo = new Lifo();
@@ -50,17 +51,17 @@ const LifoFifoDisplay = () => {
             <div className="container">
                 <div className="item-list-column">
                     <span className="item-list-header">Add/Remove Items</span><br></br><br></br>
-                    <span className="next-item-text">Next Item to be Added: {itemBeingAdded}</span><br></br><br></br>
+                    <span className="item-text">Next Item to be Added: {itemBeingAdded}</span><br></br><br></br>
                     <button className="add-item-button" onClick={() => handleAddItem()}>Add Item to LIFO and FIFO</button><br></br><br></br>
-                    <span>Next Item to be Removed from LIFO: </span><br></br>
-                    <span>{lifoNextItem}</span><br></br>
-                    <span>Next Item to be Removed from FIFO: </span><br></br>
-                    <span>{fifoNextItem}</span><br></br><br></br>
+                    <span className="item-text">Next Item to be Removed from LIFO: </span><br></br>
+                    <span className="item-text">{lifoNextItem}</span><br></br>
+                    <span className="item-text">Next Item to be Removed from FIFO: </span><br></br>
+                    <span className="item-text">{fifoNextItem}</span><br></br><br></br>
                     <button className="remove-item-button" onClick={() => handleRemoveItem()}>Remove Next Item from LIFO and FIFO</button><br></br><br></br>
-                    <span>Last Item Removed from LIFO: </span><br></br>
-                    <span>{lifoItemRemoved}</span><br></br>
-                    <span>Last Item Removed from FIFO: </span><br></br>
-                    <span>{fifoItemRemoved}</span>
+                    <span className="item-text">Last Item Removed from LIFO: </span><br></br>
+                    <span className="item-text">{lifoItemRemoved}</span><br></br>
+                    <span className="item-text">Last Item Removed from FIFO: </span><br></br>
+                    <span className="item-text">{fifoItemRemoved}</span>
                 </div>
             </div>
             <div className="container">
