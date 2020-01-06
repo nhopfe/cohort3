@@ -1,6 +1,3 @@
-import functions from './cities.js'
-import { serverFunctions } from './api.js';
-
 export class City {
     constructor(name, latitude, longitude, population, key) {
         this.key = key;

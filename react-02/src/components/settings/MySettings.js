@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeContext, themes } from '../MyTheme.js'
+import { ThemeContext } from '../MyTheme.js'
 import './settings.css';
 
 

@@ -11,10 +11,6 @@ export class LifoOrFifoParent {
 };
 
 export class Lifo extends LifoOrFifoParent {
-    constructor() {
-        super();
-    }
-
     remove() {
         const removedItem = this.list.pop();
         return removedItem;
@@ -26,10 +22,6 @@ export class Lifo extends LifoOrFifoParent {
 };
 
 export class Fifo extends LifoOrFifoParent {
-    constructor() {
-        super();
-    }
-
     remove() {
         const removedItem = this.list.shift();
         return removedItem;

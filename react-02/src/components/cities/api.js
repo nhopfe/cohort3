@@ -1,5 +1,4 @@
 import { City } from './classes.js'
-import functions from './cities.js'
 
 const url = 'http://localhost:5000/';
 
