@@ -17,8 +17,8 @@ export class City {
     }
 
     movedIn(num) {
-        this.population = this.population + num
-        return this.population;
+        this.population = parseFloat(this.population) + parseFloat(num)
+        return parseFloat(this.population);
     }
 
     movedOut(num) {
@@ -83,7 +83,7 @@ export class Community {
 
     totalPopulation() {
         const citiesArr = Object.values(this.cities);
-        const reducer = (accumulator, currentValue) => Number(accumulator) + Number(currentValue);
+        const reducer = (accumulator, currentValue) => parseFloat(accumulator) + parseFloat(currentValue);
         const totalPop = (citiesArr.map(o => o.population)).reduce(reducer);
         return totalPop;
     }
