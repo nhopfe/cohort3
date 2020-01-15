@@ -8,6 +8,9 @@
     height: 80vh;
     width: 100%;
 }
+.item-text {
+    font-size: calc(6px + 2vmin);
+}
 
 .container {
     display: flex;
