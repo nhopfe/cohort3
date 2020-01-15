@@ -53,7 +53,8 @@ const LifoFifoDisplay = () => {
             <div className="container">
                 <div className="item-list-column">
                     <span className="item-list-header">Add/Remove Items</span><br></br><br></br>
-                    <span className="item-text">Next Item to be Added: {itemBeingAdded}</span><br></br><br></br>
+                    <span className="item-text">Next Item to be Added: </span><br></br>
+                    <span className="item-text">{itemBeingAdded}</span><br></br><br></br>
                     <button className="add-item-button" onClick={() => handleAddItem()}>Add Item to LIFO and FIFO</button><br></br><br></br>
                     <span className="item-text">Next Item to be Removed from LIFO: </span><br></br>
                     <span className="item-text">{lifoNextItem}</span><br></br>
