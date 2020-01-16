@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Homepage from './components/MyHomepage.js';
-import TicTacToeGame from './components/MyTicTacToe.js';
+import TicTacToeGame from './components/tictactoe/MyTicTacToe.js';
 import Accounts from "./components/accounts/MyAccounts.js";
 import Cities from "./components/cities/MyCities.js";
 import LinkedListApp from "./components/linkedlist/MyLinkedList.js";
@@ -78,7 +78,7 @@ class App extends React.Component {
           </div>
         </header>
         <div className="App-Display">
-          <ThemeContext.Provider value={this.state.theme}>
+          <ThemeContext.Provider value={{theme: this.state.theme}}>
             {this.pageDisplayed()}
           </ThemeContext.Provider>
         </div>
