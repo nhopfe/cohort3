@@ -6,6 +6,7 @@ import './index.css';
 import { ThemeContext } from '../MyTheme.js';
 
 class Cities extends React.Component {
+    static contextType = ThemeContext;
 
     constructor(props) {
         super(props);
@@ -89,71 +90,67 @@ class Cities extends React.Component {
 
     render() {
         return (
-            <ThemeContext.Consumer>
-                {(theme) => (
-                    <div className="city-wrapper" style={{ background: theme.background }}>
-                        <div className="city-container-left">
-                            <span className="container-left-header city-display-header">
-                                Add City
-                            </span>
-                            <div className="create-city-display">
-                                <form onSubmit={this.handleSubmit}>
-                                    <label>
-                                        City Name:
-                                    </label>
-                                    <input type="text" name="cityName" className="create-city-input" value={this.state.cityName} onChange={this.handleOnChange} />
-                                    <label>
-                                        Latitude:
-                                    </label>
-                                    <input type="number" name="latitude" className="create-city-input" value={this.state.latitude} onChange={this.handleOnChange} />
-                                    <label>
-                                        Longitude:
-                                    </label>
-                                    <input type="number" name="longitude" className="create-city-input" value={this.state.longitude} onChange={this.handleOnChange} />
-                                    <label>
-                                        Population:
-                                    </label>
-                                    <input type="number" name="population" className="create-city-input" value={this.state.population} onChange={this.handleOnChange} />
-                                    <input type="submit" value="Add City" className="create-city-button" />
-                                </form>
-                            </div>
-                        </div>
-                        <div className="city-container-middle-top">
-                            <div className="city-display-headers">
-                                <span className="city-headers">Cities:</span>
-                            </div>
-                            <div>
-                                <CityCardsList
-                                    citiesArr={(Object.values(this.citiesList.cities))}
-                                    handleDelete={this.handleDelete}
-                                    cityChecker={this.cityChecker}
-                                />
-                            </div>
-                        </div>
-                        <div className="city-container-right">
-                            <div className="city-calculations-display">
-                                <span className="city-container-right-header city-display-header">
-                                    Total Population:
-                                </span>
-                                <p className="container-right-info">{this.state.totalPopulation}</p>
-                            </div>
-                            <div className="city-calculations-display">
-                                <span className="container-right-header city-display-header">
-                                    Most Northern City:
-                                </span>
-                                <p className="container-right-info">{this.state.mostNorthern}</p>
-                            </div>
-                            <div className="city-calculations-display">
-                                <span className="container-right-header city-display-header">
-                                    Most Southern City:
-                                </span>
-                                <p className="container-right-info">{this.state.mostSouthern}</p>
-                            </div>
-                        </div>
+            <div className="city-wrapper" style={{ background: this.context.theme.background }}>
+                <div className="city-container-left">
+                    <span className="container-left-header city-display-header">
+                        Add City
+                    </span>
+                    <div className="create-city-display">
+                        <form onSubmit={this.handleSubmit}>
+                            <label>
+                                City Name:
+                            </label>
+                            <input type="text" name="cityName" className="create-city-input" value={this.state.cityName} onChange={this.handleOnChange} />
+                            <label>
+                                Latitude:
+                            </label>
+                            <input type="number" name="latitude" className="create-city-input" value={this.state.latitude} onChange={this.handleOnChange} />
+                            <label>
+                                Longitude:
+                            </label>
+                            <input type="number" name="longitude" className="create-city-input" value={this.state.longitude} onChange={this.handleOnChange} />
+                            <label>
+                                Population:
+                            </label>
+                            <input type="number" name="population" className="create-city-input" value={this.state.population} onChange={this.handleOnChange} />
+                            <input type="submit" value="Add City" className="create-city-button" />
+                        </form>
                     </div>
-                )}
-            </ThemeContext.Consumer>
-        );
+                </div>
+                <div className="city-container-middle-top">
+                    <div className="city-display-headers">
+                        <span className="city-headers">Cities:</span>
+                    </div>
+                    <div>
+                        <CityCardsList
+                            citiesArr={(Object.values(this.citiesList.cities))}
+                            handleDelete={this.handleDelete}
+                            cityChecker={this.cityChecker}
+                        />
+                    </div>
+                </div>
+                <div className="city-container-right">
+                    <div className="city-calculations-display">
+                        <span className="city-container-right-header city-display-header">
+                            Total Population:
+                        </span>
+                        <p className="container-right-info">{this.state.totalPopulation}</p>
+                    </div>
+                    <div className="city-calculations-display">
+                        <span className="container-right-header city-display-header">
+                            Most Northern City:
+                        </span>
+                        <p className="container-right-info">{this.state.mostNorthern}</p>
+                    </div>
+                    <div className="city-calculations-display">
+                        <span className="container-right-header city-display-header">
+                            Most Southern City:
+                        </span>
+                        <p className="container-right-info">{this.state.mostSouthern}</p>
+                    </div>
+                </div>
+            </div>
+        )
     }
 }
 

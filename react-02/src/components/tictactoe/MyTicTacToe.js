@@ -3,6 +3,7 @@ import Board from './MyBoard';
 import { ThemeContext } from '../MyTheme.js';
 
 class TicTacToeGame extends React.Component {
+    static contextType = ThemeContext;
     constructor(props) {
         super(props);
         this.state = {
@@ -62,25 +63,21 @@ class TicTacToeGame extends React.Component {
         }
 
         return (
-            <ThemeContext.Consumer>
-                {(theme) => (
-                    <div className="game-window" style={{ background: theme.background }}>
-                        <div className="game">
-                            <div className="game-board">
-                                <Board
-                                    squares={current.squares}
-                                    onClick={(i) => this.handleClick(i)}
-                                />
-                            </div>
-                            <div className="game-info">
-                                <div>{status}</div>
-                                <ol>{moves}</ol>
-                            </div>
-                        </div>
+            <div className="game-window" style={{ background: this.context.theme.background }}>
+                <div className="game">
+                    <div className="game-board">
+                        <Board
+                            squares={current.squares}
+                            onClick={(i) => this.handleClick(i)}
+                        />
                     </div>
-                )}
-            </ThemeContext.Consumer>
-        );
+                    <div className="game-info">
+                        <div>{status}</div>
+                        <ol>{moves}</ol>
+                    </div>
+                </div>
+            </div>
+        )
     }
 
     calculateWinner(squares) {

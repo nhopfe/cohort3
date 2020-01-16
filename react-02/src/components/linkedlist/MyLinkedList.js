@@ -11,7 +11,7 @@ const LinkedListApp = () => {
     const [amount, setAmount] = useState("");
     let [current, setCurrent] = useState("");
 
-    const theme = React.useContext(ThemeContext);
+    const themeContext = React.useContext(ThemeContext);
 
     const handleInsert = (event) => {
         if (subject === "" || amount === "") {
@@ -56,7 +56,7 @@ const LinkedListApp = () => {
     )
 
     return (
-        <div className="list-wrapper" style={{ background: theme.background }}>
+        <div className="list-wrapper" style={{ background: themeContext.theme.background }}>
             <div className="create-node-display-wrapper">
                 <div className="create-node-display-header">
                     Add Item to Linked List
