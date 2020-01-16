@@ -1,19 +1,21 @@
 import React from 'react';
-import AccountCard from './MyAccountsCard.js'
+import AccountCard from './MyAccountsCard.js';
+import { AppContext } from '../AppContext.js';
 
 class AccountCardsList extends React.Component {
+    static contextType = AppContext;
 
     render() {
-        const cardList = this.props.listArray.map((account, i) => {
-            return <AccountCard
-                listArray={this.props.listArray}
-                index={i}
-                key={account.key}
-                name={account.accountName}
-                balance={account.startingBalance}
-                handleDelete={this.props.handleDelete}
-                balanceChecker={this.props.balanceChecker}
-            />
+        const cardList = this.context.accounts.listArray.map((account, i) => {
+            return (
+                <AccountCard
+                    index={i}
+                    key={i}
+                    account={account}
+                    handleDelete={this.props.handleDelete}
+                    balanceChecker={this.props.balanceChecker}
+                />
+            )
         })
 
         return (
@@ -21,7 +23,7 @@ class AccountCardsList extends React.Component {
                 {cardList}
             </div>
         )
-    }
-}
+    };
+};
 
 export default AccountCardsList;

@@ -1,19 +1,23 @@
 import React from 'react';
+import { AppContext } from '../AppContext.js';
 
 class AccountCreateDisplay extends React.Component {
+    static contextType = AppContext;
 
     render() {
         return (
             <div className="create-account-display">
-                <form onSubmit={this.props.handleSubmit}>
+                <form onSubmit={(event) => this.props.handleSubmit(event)}>
                     <label className="create-account-text">
                         Name:
                     </label>
-                    <input type="text" name="acctName" className="create-account-name-input" value={this.props.acctName} onChange={this.props.handleOnChange} />
+                    <input type="text" name="acctName" className="create-account-name-input" 
+                        value={this.context.state.acctName} onChange={(event) => this.context.handleOnChange(event)} />
                     <label className="create-account-text">
                         Balance:
                     </label>
-                    <input type="number" name="acctBalance" className="create-account-balance-input" value={this.props.acctBalance} onChange={this.props.handleOnChange} />
+                    <input type="number" name="acctBalance" className="create-account-balance-input" 
+                        value={this.context.state.acctBalance} onChange={(event) => this.context.handleOnChange(event)} />
                     <input type="submit" value="Submit" className="button create-account-button" />
                 </form>
             </div>

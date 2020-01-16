@@ -2,114 +2,84 @@ import React from 'react';
 import AccountCreateDisplay from './MyAccountsCreateDisplay.js'
 import AccountCardsList from './MyAccountsCardsList.js';
 import AccountBalancesDisplay from './MyAccountsInfoDisplay.js'
-import { AccountController } from './account.js';
+// import { AccountController } from './account.js';
 import './account-index.css';
 import { ThemeContext } from '../MyTheme.js';
+import { AppContext } from '../AppContext.js';
 
 class Accounts extends React.Component {
-    
+    static contextType = AppContext;
+    static contextType = ThemeContext;
+
     constructor(props) {
         super(props);
-        this.accounts = new AccountController('test');
-        this.handleOnChange = this.handleOnChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.state = {
-            acctName: "",
-            acctBalance: "",
-            highestName: "",
-            highestBalance: "",
-            lowestName: "",
-            lowestBalance: "",
-            totalBalance: "",
-        };
-    }
-
-    handleOnChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value,
-        })
     }
 
     handleSubmit = (event) => {
-        let array = this.accounts.listArray;
+        let array = this.context.accounts.listArray;
         let accountNames = array.map(array => array.accountName);
-        let matchingName = accountNames.find(account => account === this.state.acctName);
-        if (this.state.acctName === matchingName || this.state.acctName === "") {
+        let matchingName = accountNames.find(account => account === this.context.state.acctName);
+        if (this.context.state.acctName === matchingName || this.context.state.acctName === "") {
             alert("Duplicate or no account name entered!");
         }
         else {
-            this.accounts.addAccount(this.state.acctName, this.state.acctBalance);
+            this.context.accounts.addAccount(this.context.state.acctName, this.context.state.acctBalance);
         }
-        this.setState({
-            acctName: "",
-            acctBalance: "",
-        })
-        this.balanceChecker(this.accounts.listArray);
+        this.context.handleStateChange([
+            { state: "acctName", newState: "" },
+            { state: "acctBalance", newState: "" },
+        ]);
+        this.balanceChecker(this.context.accounts.listArray);
         event.preventDefault();
     }
 
     handleDelete = (i) => {
-        this.accounts.listArray.splice(i, 1);
-        this.balanceChecker(this.accounts.listArray);
+        this.context.accounts.listArray.splice(i, 1);
+        this.balanceChecker(this.context.accounts.listArray);
     }
 
     balanceChecker = (array) => {
-        if (this.accounts.listArray.length > 0) {
-            this.setState({
-                highestName: this.accounts.highestBalance(array),
-                highestBalance: this.accounts.highestBalanceNumber(array),
-                lowestName: this.accounts.lowestBalance(array),
-                lowestBalance: this.accounts.lowestBalanceNumber(array),
-                totalBalance: this.accounts.totalBalances(array),
-            });
-        }
-        else {
-            this.setState({
-                highestName: "",
-                highestBalance: "",
-                lowestName: "",
-                lowestBalance: "",
-                totalBalance: "",
-            });
-        }
-    }
+        if (this.context.accounts.listArray.length > 0) {
+            this.context.handleStateChange([
+                { state: "highestName", newState: this.context.accounts.highestBalance(array) },
+                { state: "highestBalance", newState: this.context.accounts.highestBalanceNumber(array) },
+                { state: "lowestName", newState: this.context.accounts.lowestBalance(array) },
+                { state: "lowestBalanceNumber", newState: this.context.accounts.lowestBalanceNumber(array) },
+                { state: "totalBalance", newState: this.context.accounts.totalBalances(array) },
+            ]);
+        } else this.context.handleStateChange([
+                { state: "highestName", newState: "" },
+                { state: "highestBalance", newState: "" },
+                { state: "lowestName", newState: "" },
+                { state: "lowestBalanceNumber", newState: "" },
+                { state: "totalBalance", newState: "" },
+        ]);
+    };
 
     render() {
         return (
-            <ThemeContext.Consumer>
-                {(theme) => (
-                    <div className="wrapper" style={{ background: theme.background }}>
-                        <div className="container-left">
-                            <span className="container-left-header display-header">Create New Account</span>
-                            <AccountCreateDisplay
-                                handleSubmit={this.handleSubmit}
-                                handleOnChange={this.handleOnChange}
-                                acctName={this.state.acctName}
-                                acctBalance={this.state.acctBalance}
-                            />
-                        </div>
-                        <div className="container-middle">
-                            <span className="container-middle-header display-header">Accounts Display</span>
-                            <AccountCardsList
-                                listArray={this.accounts.listArray}
-                                handleDelete={this.handleDelete}
-                                balanceChecker={this.balanceChecker}
-                            />
-                        </div>
-                        <div className="container-right">
-                            <span className="container-right-header display-header">Accounts Information</span>
-                            <AccountBalancesDisplay
-                                highestName={this.state.highestName}
-                                highestBalance={this.state.highestBalance}
-                                lowestName={this.state.lowestName}
-                                lowestBalance={this.state.lowestBalance}
-                                totalBalance={this.state.totalBalance}
-                            />
-                        </div>
-                    </div>
-                )}
-            </ThemeContext.Consumer>
-        );
+            <div className="wrapper" style={{ background: this.context.theme.background }}>
+                <div className="container-left">
+                    <span className="container-left-header display-header">Create New Account</span>
+                    <AccountCreateDisplay
+                        handleSubmit={this.handleSubmit}
+                    />
+                </div>
+                <div className="container-middle">
+                    <span className="container-middle-header display-header">Accounts Display</span>
+                    <AccountCardsList
+                        handleDelete={this.handleDelete}
+                        balanceChecker={this.balanceChecker}
+                    />
+                </div>
+                <div className="container-right">
+                    <span className="container-right-header display-header">Accounts Information</span>
+                    <AccountBalancesDisplay
+                    />
+                </div>
+            </div>
+        )
     }
 }
 
