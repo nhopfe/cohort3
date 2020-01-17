@@ -25,12 +25,12 @@ class AccountCard extends React.Component {
             alert("Please enter a number greater than zero!");
         }
         else {
-            this.props.listArray[i].accountDeposit(Number(this.state.changeBalance));
+            this.context.accounts.listArray[i].accountDeposit(Number(this.state.changeBalance));
         }
         this.setState({
             changeBalance: "",
         })
-        this.props.balanceChecker(this.props.listArray);
+        this.props.balanceChecker(this.context.accounts.listArray);
     };
 
     handleWithdraw(i) {
@@ -38,12 +38,12 @@ class AccountCard extends React.Component {
             alert("Please enter a number greater than zero!");
         } 
         else {
-            this.props.listArray[i].accountWithdraw(Number(this.state.changeBalance));
+            this.context.accounts.listArray[i].accountWithdraw(Number(this.state.changeBalance));
         }
         this.setState({
             changeBalance: "",
         })
-        this.props.balanceChecker(this.props.listArray);
+        this.props.balanceChecker(this.context.accounts.listArray);
     };
 
     render() {
@@ -51,10 +51,10 @@ class AccountCard extends React.Component {
             <div className="account-card">
                 <form>
                     <label className="account-name">
-                        {this.props.name}
+                        {this.props.account.accountName}
                     </label>
                     <label className="account-balance">
-                        {`$${(this.props.balance).toFixed(2)}`}
+                        {`$${(this.props.account.startingBalance).toFixed(2)}`}
                     </label>
                     <input type="number" name="changeBalance" value={this.state.changeBalance} className="account-input" onChange={this.handleOnChange} />
                     <input type="button" value="Deposit" className="deposit-button account-button" onClick={() => this.handleDeposit(this.props.index) } />

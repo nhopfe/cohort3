@@ -9,11 +9,11 @@ class AccountCardsList extends React.Component {
         const cardList = this.context.accounts.listArray.map((account, i) => {
             return (
                 <AccountCard
-                    index={i}
                     key={i}
-                    account={account}
                     handleDelete={this.props.handleDelete}
                     balanceChecker={this.props.balanceChecker}
+                    index={i}
+                    account={account}
                 />
             )
         })

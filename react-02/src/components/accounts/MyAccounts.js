@@ -2,14 +2,12 @@ import React from 'react';
 import AccountCreateDisplay from './MyAccountsCreateDisplay.js'
 import AccountCardsList from './MyAccountsCardsList.js';
 import AccountBalancesDisplay from './MyAccountsInfoDisplay.js'
-// import { AccountController } from './account.js';
 import './account-index.css';
 import { ThemeContext } from '../MyTheme.js';
 import { AppContext } from '../AppContext.js';
 
 class Accounts extends React.Component {
     static contextType = AppContext;
-    static contextType = ThemeContext;
 
     constructor(props) {
         super(props);
@@ -35,7 +33,7 @@ class Accounts extends React.Component {
     }
 
     handleDelete = (i) => {
-        this.context.accounts.listArray.splice(i, 1);
+        this.context.accounts.deleteAccount(this.context.accounts.listArray, i);
         this.balanceChecker(this.context.accounts.listArray);
     }
 
@@ -48,38 +46,43 @@ class Accounts extends React.Component {
                 { state: "lowestBalanceNumber", newState: this.context.accounts.lowestBalanceNumber(array) },
                 { state: "totalBalance", newState: this.context.accounts.totalBalances(array) },
             ]);
-        } else this.context.handleStateChange([
-                { state: "highestName", newState: "" },
-                { state: "highestBalance", newState: "" },
-                { state: "lowestName", newState: "" },
-                { state: "lowestBalanceNumber", newState: "" },
-                { state: "totalBalance", newState: "" },
+        }
+        else this.context.handleStateChange([
+            { state: "highestName", newState: "" },
+            { state: "highestBalance", newState: "" },
+            { state: "lowestName", newState: "" },
+            { state: "lowestBalanceNumber", newState: "" },
+            { state: "totalBalance", newState: "" },
         ]);
     };
 
     render() {
         return (
-            <div className="wrapper" style={{ background: this.context.theme.background }}>
-                <div className="container-left">
-                    <span className="container-left-header display-header">Create New Account</span>
-                    <AccountCreateDisplay
-                        handleSubmit={this.handleSubmit}
-                    />
-                </div>
-                <div className="container-middle">
-                    <span className="container-middle-header display-header">Accounts Display</span>
-                    <AccountCardsList
-                        handleDelete={this.handleDelete}
-                        balanceChecker={this.balanceChecker}
-                    />
-                </div>
-                <div className="container-right">
-                    <span className="container-right-header display-header">Accounts Information</span>
-                    <AccountBalancesDisplay
-                    />
-                </div>
-            </div>
-        )
+            <ThemeContext.Consumer>
+                {theme =>
+                    <div className="wrapper" style={{ background: theme.theme.background }}>
+                        <div className="container-left">
+                            <span className="container-left-header display-header">Create New Account</span>
+                            <AccountCreateDisplay
+                                handleSubmit={this.handleSubmit}
+                            />
+                        </div>
+                        <div className="container-middle">
+                            <span className="container-middle-header display-header">Accounts Display</span>
+                            <AccountCardsList
+                                handleDelete={this.handleDelete}
+                                balanceChecker={this.balanceChecker}
+                            />
+                        </div>
+                        <div className="container-right">
+                            <span className="container-right-header display-header">Accounts Information</span>
+                            <AccountBalancesDisplay
+                            />
+                        </div>
+                    </div>
+                }
+            </ThemeContext.Consumer>
+        );
     }
 }
 
