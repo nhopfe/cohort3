@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { LinkedList } from './linkedlist.js';
 import './linkedlist.css';
 import { ThemeContext } from '../MyTheme.js';
+import { AppContext } from '../AppContext.js';
 
 
 const linkedList = new LinkedList();
@@ -9,9 +10,9 @@ const linkedList = new LinkedList();
 const LinkedListApp = () => {
     const [subject, setSubject] = useState("");
     const [amount, setAmount] = useState("");
-    let [current, setCurrent] = useState("");
 
     const themeContext = React.useContext(ThemeContext);
+    const appContext = React.useContext(AppContext);
 
     const handleInsert = (event) => {
         if (subject === "" || amount === "") {
@@ -19,7 +20,7 @@ const LinkedListApp = () => {
             event.preventDefault();
         }
         else {
-            setCurrent(current = linkedList.insert(subject, amount));
+            appContext.handleStateChange([{ state: "current", newState: appContext.linkedList.insert(subject, amount) }])
             setSubject("");
             setAmount("");
             event.preventDefault();
@@ -49,7 +50,7 @@ const LinkedListApp = () => {
     }
 
     const ListCard = (props) => (
-        <div className={`list-card ` + ((props.node === current) ? "active-list-card" : null)}>
+        <div className={`list-card ` + ((props.node === appContext.linkedList.current) ? "active-list-card" : null)}>
             <span className="list-card-text">Subject: {props.node.subject}</span>
             <span className="list-card-text">Amount: {props.node.amount}</span>
         </div>
@@ -75,31 +76,31 @@ const LinkedListApp = () => {
             </div>
             <div className="list-info">
                 <div className="list-current-show">
-                    {(linkedList.current) ? linkedList.current.show() : null}
+                    {(appContext.linkedList.current) ? appContext.linkedList.current.show() : null}
                 </div>
                 <div className="list-total-amounts">
-                    Total of All Amounts: {linkedList.total()}
+                    Total of All Amounts: {appContext.linkedList.total()}
                 </div>
             </div>
             <div className="list-navbar">
                 <input type="submit" value="First Item" className="list-button"
-                    onClick={() => setCurrent(current = linkedList.first())}
+                    onClick={() => appContext.handleStateChange([{ state: "current", newState: appContext.linkedList.first() }])}
                 />
                 <input type="submit" value="Previous Item" className="list-button"
-                    onClick={() => setCurrent(current = linkedList.previous(linkedList.current))}
+                    onClick={() => appContext.handleStateChange([{ state: "current", newState: appContext.linkedList.previous(appContext.linkedList.current) }])}
                 />
                 <input type="submit" value="Delete Current Item" className="list-button delete-button"
-                    onClick={() => setCurrent(current = linkedList.delete(linkedList.current))}
+                    onClick={() => appContext.handleStateChange([{ state: "current", newState: appContext.linkedList.delete(appContext.linkedList.current) }])}
                 />
                 <input type="submit" value="Next Item" className="list-button"
-                    onClick={() => setCurrent(current = linkedList.next(linkedList.current))}
+                    onClick={() => appContext.handleStateChange([{ state: "current", newState: appContext.linkedList.next(appContext.linkedList.current) }])}
                 />
                 <input type="submit" value="Last Item" className="list-button"
-                    onClick={() => setCurrent(current = linkedList.last())}
+                    onClick={() => appContext.handleStateChange([{ state: "current", newState: appContext.linkedList.last(appContext.linkedList.current) }])}
                 />
             </div>
             <div className="list-display">
-                {displayNodes(linkedList)}
+                {displayNodes(appContext.linkedList)}
             </div>
         </div>
     )

@@ -54,8 +54,7 @@ export class LinkedList {
         }
     }
 
-    delete
-    (node) {
+    delete(node) {
         if (!node) {
             return null
         }
