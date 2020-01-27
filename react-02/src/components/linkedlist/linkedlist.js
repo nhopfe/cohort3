@@ -7,7 +7,7 @@ export class ListNode {
         this.backwardNode = null;
     }
 
-    show() { 
+    show() {
         return `Current Item: ${this.subject} Current Item's Amount: ${this.amount}.`
     }
 };
@@ -24,33 +24,27 @@ export class LinkedList {
         this.current = null;
     }
 
-    insert(subject, amount) { 
+    insert(subject, amount) {
         let newListNode = new ListNode(subject, amount);
         if (!this.current) {
             this.head = newListNode;
             this.tail = newListNode;
             this.current = newListNode;
             return newListNode;
-        }
-        else {
-            let newNext = this.current.next;
-            let newPrev = this.current;
-            if (this.current === this.tail) {
-                this.current.forwardNode = newListNode;
-                newListNode.backwardNode = newPrev;
-                this.tail = newListNode;
-                this.current = newListNode;
-                newListNode.forwardNode = null;
-                return newListNode;
-            }
-            else {
-                this.current.forwardNode = newListNode;
-                newListNode.backwardNode = newPrev;
-                newListNode.forwardNode = newNext;
-                newNext.backwardNode = newListNode;
-                this.current = newListNode;
-                return newListNode;
-            }
+        } else if (this.current === this.tail) {
+            this.current.forwardNode = newListNode;
+            newListNode.backwardNode = this.current;
+            this.tail = newListNode;
+            this.current = newListNode;
+            newListNode.forwardNode = null;
+            return newListNode;
+        } else {
+            newListNode.backwardNode = this.current;
+            newListNode.forwardNode = this.current.forwardNode;
+            this.current.forwardNode = newListNode;
+            newListNode.forwardNode.backwardNode = newListNode;
+            this.current = newListNode;
+            return newListNode;
         }
     }
 

@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import { LinkedList } from './linkedlist.js';
 import './linkedlist.css';
 import { ThemeContext } from '../MyTheme.js';
 import { AppContext } from '../AppContext.js';
-
-
-const linkedList = new LinkedList();
 
 const LinkedListApp = () => {
     const [subject, setSubject] = useState("");

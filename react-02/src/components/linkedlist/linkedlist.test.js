@@ -2,7 +2,7 @@ import { ListNode, LinkedList } from './linkedlist';
 
 test('test ListNode show', () => {
     const testListNode = new ListNode("Test Node", 1);
-    expect(testListNode.show()).toBe("Current Item: Test Node, Current Item's Amount: 1.");
+    expect(testListNode.show()).toBe("Current Item: Test Node Current Item's Amount: 1.");
 });
 
 test('test LinkedList insert', () => {
@@ -21,6 +21,13 @@ test('test LinkedList insert', () => {
     expect(testNodeThree).toBe(testLinkedList.current);  
     expect(testNodeThree.forwardNode).toBe(null);
     expect(testNodeThree.backwardNode).toBe(testNodeTwo);
+    testLinkedList.current = testNodeTwo;
+    const testNodeFour = testLinkedList.insert("Test Node Four", 4);
+    expect(testNodeTwo.forwardNode).toBe(testNodeFour);
+    expect(testNodeFour.backwardNode).toBe(testNodeTwo);
+    expect(testNodeFour.forwardNode).toBe(testNodeThree);
+    expect(testNodeThree.backwardNode).toBe(testNodeFour);
+    expect(testLinkedList.current).toBe(testNodeFour);
 });
 
 test('test LinkedList delete', () => {
