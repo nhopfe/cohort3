@@ -1,17 +1,3 @@
-/*	
-	Write the function that will create this output:
-
-*** the two values are not the same:
-    p1--> a
-    p2--> b
-*** the two values are not the same:
-    p1--> 1
-    p2--> 2
-*** the two values are not the same:
-    p1--> 2
-    p2--> 2
-*/
-
 import { calculateWinner, originFunc, fruitFunc, anon, provAgeLoop, assertEquals, makeEmailArr, makeEmailObj, exampleForLoop, exampleWhileLoop, exampleDoWhileLoop, exampleForInLoop, exampleForOfLoop, spliceExample, sliceExample, forEachExample, mapExample, reduceExample, filterExample, sortExample, loopStaff, data, loopStaffOf, loopStaffIn, loopStaffForEach, loopStaffMap, totalOfBalances, averageOfBalances, balancesGreaterThan1000, people, provLoop } from './daily'
 
 // Destructuring-assignment Daily for 2019-11-26
