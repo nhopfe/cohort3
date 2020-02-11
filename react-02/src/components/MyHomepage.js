@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from 'C:/code/cohort3/react-02/src/logo.svg';
+import logo from '../logo.svg';
 import { ThemeContext } from './MyTheme.js';
 
 class Homepage extends React.Component {
