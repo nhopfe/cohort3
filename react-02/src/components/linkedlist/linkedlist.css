@@ -39,7 +39,8 @@
 
 .list-navbar {
     display: flex;
-    justify-content: center;
+		justify-content: center;
+		align-items: center;
     height: 7vh;
     padding: 5px;
     margin: 5px;
@@ -69,7 +70,7 @@
 
 .active-list-card {
     color: #4edbbf;
-    font-weight: bold;
+    /* font-weight: bold; */
     background-color:  rgb(6, 63, 73);
 }
 
