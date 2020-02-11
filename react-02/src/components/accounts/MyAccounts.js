@@ -19,7 +19,7 @@ class Accounts extends React.Component {
         let accountNames = array.map(array => array.accountName);
         let matchingName = accountNames.find(account => account === this.context.state.acctName);
         if (this.context.state.acctName === matchingName || this.context.state.acctName === "") {
-            alert("Duplicate or no account name entered!");
+            this.context.handleStateChange([{ state: "namingError", newState: "Duplicate or no account name entered!"}]);
         }
         else {
             this.context.accounts.addAccount(this.context.state.acctName, this.context.state.acctBalance);
