@@ -80,8 +80,8 @@ class CityCard extends React.Component {
                 <div className="buttons-container">
                     <input type="button" value="Show" className="show-button city-button" onClick={() => this.handleShow(this.props.index)} />
                     <input type="button" value="Move In" className="movedin-button city-button" onClick={() => this.handleMovedIn(this.props.index)} />
+										<input type="button" value="How Big" className="how-big-button city-button" onClick={() => this.handleHowBig(this.props.index)} />
                     <input type="button" value="Move Out" className="movedout-button city-button" onClick={() => this.handleMovedOut(this.props.index)} />
-                    <input type="button" value="How Big" className="how-big-button city-button" onClick={() => this.handleHowBig(this.props.index)} />
                     <input type="button" value="Show Hemisphere" className="hemisphere-show city-button" onClick={() => this.handleWhichSphere(this.props.index)} />
                     <input type="button" value="Delete City" className="delete-button city-button" onClick={() => this.props.handleDelete(this.props.index)} />
                 </div>
