@@ -6,11 +6,18 @@ CREATE TABLE player
     join_date DATE
 );
 
+CREATE TABLE worlds
+(
+		world_id serial PRIMARY KEY,
+		world_name VARCHAR(25) NOT NULL,
+		world_order INT NOT NULL
+);
+
 
 CREATE TABLE levels
 (
     level_id serial PRIMARY KEY,
-    world_name VARCHAR(25) NOT NULL,
+    world_id VARCHAR (25) NOT NULL,
     level_name VARCHAR(100) UNIQUE NOT NULL
 );
 
@@ -30,7 +37,7 @@ CREATE TABLE score
 
 
 INSERT INTO player
-    (account_name, email, join_date)
+    (username, email, join_date)
 VALUES
     ('TestName', 'testemail@exampledomain.com', current_date),
     ('TestName2', 'testemail2@exampledomain.com', current_date),
