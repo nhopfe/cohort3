@@ -21,6 +21,13 @@ CREATE TABLE levels
     level_name VARCHAR(100) UNIQUE NOT NULL
 );
 
+CREATE TABLE attempts
+(
+		CONSTRAINT attempts_level_id FOREIGN KEY (level_id) REFERENCES levels (level_id),
+		wins INT NOT NULL,
+		losses INT NOT NULL,
+);
+
 
 CREATE TABLE score
 (
