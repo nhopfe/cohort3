@@ -34,3 +34,34 @@ class TestIfElse:
 		assert syntax.python_if_else("test") == "string"
 		assert syntax.python_if_else(0) == "not a string"
 		assert syntax.python_if_else(True) == "not a string"
+
+class TestListMethods:
+	def test_insert(self):
+		li = [1, 2, 3]
+		assert syntax.python_insert(li, 0, 4) == [4, 1, 2, 3]
+		assert syntax.python_insert(li, 0, 5) == [5, 4, 1, 2, 3]
+		assert syntax.python_insert(li, 4, 6) == [5, 4, 1, 2, 6, 3]
+	def test_append(self):
+		li = [1, 2, 3]
+		assert syntax.python_append(li, 4) == [1, 2, 3, 4]
+		assert syntax.python_append(li, 5) == [1, 2, 3, 4, 5]
+	def test_update_list(self):
+		li = [1, 2, 3]
+		assert syntax.python_update(li, 2, 1, 4) == [1, 4, 3]
+		assert syntax.python_update(li, 1, 2, 5) == [4, 3, 5]
+
+class TestLoops:
+	def test_for_loop(self):
+		test_li = ["a", "b", "c"]
+		assert syntax.python_for_loop(test_li) == ["c", "b", "a"]
+		test_li = [1, 2, 3]
+		assert syntax.python_for_loop(test_li) == [3, 2, 1]
+	def test_while_loop(self):
+		assert syntax.python_while_loop(5) == 15
+		assert syntax.python_while_loop(10) == 55
+
+class TestKeyLookup:
+	def test_lookup_keys(self):
+		lemon = {"type":"fruit", "color":"yellow", "taste":"sour"}
+		assert syntax.python_lookup_keys(lemon, "color") == "yellow"
+		assert syntax.python_lookup_keys(lemon, "taste") == "sour"
