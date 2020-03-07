@@ -9,7 +9,7 @@ def sizes_of_files(dir_path):
         for x in files:
             fp = os.path.join(root, x)
             size = os.path.getsize(fp)
-            file_size_dict[x] = round(size, 4)
+            file_size_dict[x] = size
     return file_size_dict
 
 def directory_report(dir_path):
