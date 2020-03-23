@@ -1,4 +1,4 @@
-*** CITY DATA READER ***
+CITY DATA REPORT
 
 File: /code/cohort3/src/python/comp 220/Census_by_Community_2018.csv
 
@@ -6,7 +6,7 @@ File: /code/cohort3/src/python/comp 220/Census_by_Community_2018.csv
 
 Report:
 
-CLASS                         RES_CNT Total
+ CLASS                        RES_CNT Total
 
 Residential                    1263734
 Industrial                     922

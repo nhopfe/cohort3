@@ -14,11 +14,18 @@ class TestCsvReader:
     def test_data_report(self):
         data = csv_reader.data_reader("/code/cohort3/src/python/comp 220/Census_by_Community_2018.csv")
         report = csv_reader.data_report(data, "/code/cohort3/src/python/comp 220/Census_by_Community_2018.csv")
-        with open(report.name, "r") as test_report:
-            text = test_report.readlines()
-            assert len(text) == 35
-            assert text[2] == 'File: /code/cohort3/src/python/comp 220/Census_by_Community_2018.csv\n'
-            assert text[10] == 'Residential                    1263734\n'
-            assert text[19] == 'CENTRE                         199977\n'
-            assert text[32] == 'CLASS / SECTOR Lines           12\n'
-        test_report.close()
+        def search(targets):
+            targets = [word.lower() for word in targets]
+            results = 0
+            with open(report.name, "r") as test_report:
+                for line in test_report:
+                    line = line.strip().lower()
+                    for word in targets:
+                        if word in line:
+                            results += 1
+            test_report.close()
+            return results
+        assert search(['class']) == 2
+        assert search(['CLASS']) == 2
+        assert search(['residential']) == 1
+        assert search(['WordThatShouldNotExistInReport']) == 0
