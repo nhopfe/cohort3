@@ -15,8 +15,8 @@ export class ListNode {
 export class LinkedList {
 
     // -- Chose Doubly-LinkedList --- 
-    // Reasoning:   Doubly-liked allows searches in both directions, imroving both
-    //              functionality and performance. 
+    // Reasoning:   Doubly-linked allows searches in both directions, improving both
+    //              functionality. 
 
     constructor() {
         this.head = null;

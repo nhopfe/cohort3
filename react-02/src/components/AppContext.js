@@ -13,13 +13,13 @@ export class ContextProvider extends React.Component {
     state = {
         // Accounts
         acctName: "",
-				acctBalance: "",
-				namingError: "",
+        acctBalance: "",
+        namingError: "",
         highestName: "",
         highestBalance: "",
         lowestName: "",
         lowestBalance: "",
-				totalBalance: "",
+        totalBalance: "",
         // Linked-List
         current: "",
     };
@@ -36,13 +36,13 @@ export class ContextProvider extends React.Component {
                 [states[i].state]: states[i].newState,
             })
         }
-		};
-		
-		resetNamingError = () => {
-			this.setState({
-				namingError: "",
-			})
-		}
+    };
+
+    resetNamingError = () => {
+        this.setState({
+            namingError: "",
+        })
+    }
 
     render() {
         return (
@@ -52,8 +52,8 @@ export class ContextProvider extends React.Component {
                     linkedList: this.linkedList,
                     state: this.state,
                     handleOnChange: this.handleOnChange,
-										handleStateChange: this.handleStateChange,
-										resetNamingError: this.resetNamingError,
+                    handleStateChange: this.handleStateChange,
+                    resetNamingError: this.resetNamingError,
                 }}
             >
                 <App />
